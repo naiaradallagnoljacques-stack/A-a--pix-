@@ -10,10 +10,10 @@ HTML = """
 <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814">
 <h2>Acai 500ml - R$ 22,00</h2>
 <a class="btn pix" href="#" onclick="document.getElementById('pixbox').style.display='block';return false;">PAGAR COM PIX</a>
-<div id="pixbox" class="pix-box"><p>Chave PIX:</p><h2 id="chave">55999999999</h2><p>Nome: Claudia Silva</p>
+<div id="pixbox" class="pix-box"><p>Chave PIX:</p><h2 id="chave">99292670000</h2><p>Nome: Claudia Silva</p>
 <button onclick="navigator.clipboard.writeText(document.getElementById('chave').innerText);alert('Copiado!')" style="padding:12px;background:#4a148c;color:white;border:none;border-radius:8px;font-weight:bold">COPIAR CHAVE PIX</button><br><br>
-<a class="btn zap" href="https://wa.me/555599999999">JA PAGUEI, ENVIAR COMPROVANTE</a></div>
-<a class="btn zap" href="https://wa.me/555599999999">PEDIR NO WHATSAPP</a>
+<a class="btn zap" href="https://wa.me/55991600621">JA PAGUEI, ENVIAR COMPROVANTE</a></div>
+<a class="btn zap" href="https://wa.me/55991600621">PEDIR NO WHATSAPP</a>
 </div></div></body></html>
 """
 @app.route('/')
