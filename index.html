@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Açaí do Ponto • Pedido</title>
+<title>Açaí do Polaco • Pedido</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Segoe UI,sans-serif}
 body{background:#0a0414;color:#fff;padding-bottom:120px;overflow-x:hidden}
@@ -56,7 +56,7 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 <input id="tel" placeholder="WhatsApp">
 </div>
 <div class="total" id="total">Total: R$ 14,00</div>
-<div class="card"><div class="pix-box">PIX Celular<br><b>55999292670000</b></div></div>
+<div class="card"><div class="pix-box">PIX Cpf<br><b>99292670000</b></div></div>
 </div>
 <div class="foot">
 <button class="btn btn-pix" onclick="copiarPix()">COPIAR PIX</button>
@@ -66,8 +66,8 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 let tamanho='300ml',preco=14,toppings=[];
 function setSize(el,t,p){document.querySelectorAll('.size').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');tamanho=t;preco=p;document.getElementById('total').innerText='Total: R$ '+p+',00'}
 function toggleTop(el){let v=el.innerText;if(el.classList.contains('active')){el.classList.remove('active');toppings=toppings.filter(x=>x!=v)}else{if(toppings.length>=5){alert('Máximo 5 adicionais!');return}el.classList.add('active');toppings.push(v)}}
-function copiarPix(){let chave='55999292670000';let aux=document.createElement('input');aux.value=chave;document.body.appendChild(aux);aux.select();document.execCommand('copy');document.body.removeChild(aux);alert('PIX 55999292670000 copiado! ✅')}
-function enviarZap(){let n=document.getElementById('nome').value;let e=document.getElementById('end').value;if(!n){alert('Coloque seu nome!');return}if(!e){alert('Coloque seu endereço!');return}let t=document.getElementById('tel').value;let msg=`🍧 *PEDIDO AÇAÍ DO PONTO*%0A%0ANome: ${n}%0ATamanho: ${tamanho} - R$${preco}%0AAdicionais: ${toppings.join(', ')||'Puro'}%0AEnd: ${e}%0ATel: ${t}%0A%0APIX 99292670000 PAGO ✅`;window.location.href='https://wa.me/5555992926700?text='+msg}
+function copiarPix(){let chave='55999292670000';let aux=document.createElement('input');aux.value=chave;document.body.appendChild(aux);aux.select();document.execCommand('copy');document.body.removeChild(aux);alert('PIX 99292670000 copiado! ✅')}
+function enviarZap(){let n=document.getElementById('nome').value;let e=document.getElementById('end').value;if(!n){alert('Coloque seu nome!');return}if(!e){alert('Coloque seu endereço!');return}let t=document.getElementById('tel').value;let msg=`🍧 *PEDIDO AÇAÍ DO POLACO*%0A%0ANome: ${n}%0ATamanho: ${tamanho} - R$${preco}%0AAdicionais: ${toppings.join(', ')||'Puro'}%0AEnd: ${e}%0ATel: ${t}%0A%0APIX 99292670000 PAGO ✅`;window.location.href='https://wa.me/55991600621?text='+msg}
 </script>
 </body>
 </html>
