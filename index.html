@@ -12,54 +12,62 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .header h1{font-size:38px;letter-spacing:8px;font-weight:200;text-shadow:0 0 15px #b24bff;color:#e9c6ff}
 .header p{color:#a78bfa;letter-spacing:3px;font-size:12px;margin-top:8px}
 .container{max-width:500px;margin:0 auto;padding:0 16px}
-.card{background:rgba(255,255,255,.06);backdrop-filter:blur(15px);border:1px solid rgba(178,75,255,.25);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.card{background:rgba(255,255,255,.06);backdrop-filter:blur(15px);border:1px solid rgba(178,75,255,.25);border-radius:20px;padding:18px;margin-bottom:14px}
 .card h2{font-size:13px;letter-spacing:2px;color:#d8b4fe;margin-bottom:12px}
 .sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.size{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px;text-align:center;cursor:pointer;transition:.2s;background:rgba(0,0,0,.3)}
+.size{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px;text-align:center;cursor:pointer;background:rgba(0,0,0,.3)}
 .size.selected{border-color:#b24bff;background:rgba(178,75,255,.2);box-shadow:0 0 15px rgba(178,75,255,.4)}
-.size b{display:block;font-size:18px}
-.size span{font-size:12px;color:#a78bfa}
 .toppings{display:flex;flex-wrap:wrap;gap:8px}
-.top{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 14px;font-size:13px;cursor:pointer;transition:.2s;color:#ddd}
-.top.active{background:#b24bff;border-color:#b24bff;color:#fff;box-shadow:0 0 10px #b24bff}
-input,textarea{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px;color:#fff;margin-top:8px;outline:none}
-input:focus,textarea:focus{border-color:#b24bff}
-.foot{position:fixed;bottom:0;left:0;right:0;background:rgba(10,4,20,.9);backdrop-filter:blur(20px);border-top:1px solid rgba(178,75,255,.3);padding:12px 16px;display:flex;gap:10px;z-index:10}
+.top{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 14px;font-size:13px;cursor:pointer;color:#ddd}
+.top.active{background:#b24bff;border-color:#b24bff;color:#fff}
+input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px;color:#fff;margin-top:8px;outline:none}
+.foot{position:fixed;bottom:0;left:0;right:0;background:rgba(10,4,20,.95);border-top:1px solid rgba(178,75,255,.3);padding:12px 16px;display:flex;gap:10px;z-index:10}
 .btn{flex:1;border:none;border-radius:12px;padding:14px;font-weight:700;cursor:pointer}
 .btn-pix{background:#fff;color:#000}
-.btn-zap{background:linear-gradient(135deg,#7c1cf6,#b24bff);color:#fff;box-shadow:0 0 15px #7c1cf6}
-.total{text-align:center;margin:10px 0 5px;color:#d8b4fe;font-weight:600}
+.btn-zap{background:linear-gradient(135deg,#7c1cf6,#b24bff);color:#fff}
+.total{text-align:center;margin:10px 0;color:#d8b4fe;font-weight:600}
 .pix-box{background:rgba(178,75,255,.1);border:1px dashed #b24bff;border-radius:12px;padding:12px;text-align:center;margin-top:12px}
-.pix-box b{font-size:18px;letter-spacing:1px}
 </style>
 </head>
 <body>
-<div class="header">
-<div class="logo">🍧</div>
-<h1>AÇAÍ</h1>
-<p>BOWLS • SMOOTHIES • GOOD</p>
-</div>
-
+<div class="header"><div class="logo">🍧</div><h1>AÇAÍ</h1><p>BOWLS • SMOOTHIES • GOOD</p></div>
 <div class="container">
 <div class="card"><h2>TAMANHO</h2>
-<div class="sizes" id="sizes">
-<div class="size selected" data-v="300" data-p="14"><b>300ml</b><span>R$ 14,00</span></div>
-<div class="size" data-v="500" data-p="20"><b>500ml</b><span>R$ 20,00</span></div>
-<div class="size" data-v="700" data-p="26"><b>700ml</b><span>R$ 26,00</span></div>
-<div class="size" data-v="1000" data-p="34"><b>1 Litro</b><span>R$ 34,00</span></div>
+<div class="sizes">
+<div class="size selected" onclick="setSize(this,'300ml',14)"><b>300ml</b><br><small>R$ 14,00</small></div>
+<div class="size" onclick="setSize(this,'500ml',20)"><b>500ml</b><br><small>R$ 20,00</small></div>
+<div class="size" onclick="setSize(this,'700ml',26)"><b>700ml</b><br><small>R$ 26,00</small></div>
+<div class="size" onclick="setSize(this,'1L',34)"><b>1 Litro</b><br><small>R$ 34,00</small></div>
 </div></div>
-
 <div class="card"><h2>ADICIONAIS GRÁTIS (5)</h2>
-<div class="toppings" id="tops">
-<span class="top">Leite Condensado</span><span class="top">Paçoca</span><span class="top">Granola</span><span class="top">Banana</span><span class="top">Morango</span><span class="top">Nutella</span><span class="top">Leite Ninho</span><span class="top">Confete</span>
+<div class="toppings">
+<span class="top" onclick="toggleTop(this)">Leite Condensado</span>
+<span class="top" onclick="toggleTop(this)">Paçoca</span>
+<span class="top" onclick="toggleTop(this)">Granola</span>
+<span class="top" onclick="toggleTop(this)">Banana</span>
+<span class="top" onclick="toggleTop(this)">Morango</span>
+<span class="top" onclick="toggleTop(this)">Nutella</span>
+<span class="top" onclick="toggleTop(this)">Leite Ninho</span>
+<span class="top" onclick="toggleTop(this)">Confete</span>
 </div></div>
-
 <div class="card"><h2>SEUS DADOS</h2>
 <input id="nome" placeholder="Seu nome">
 <input id="end" placeholder="Endereço + bairro">
 <input id="tel" placeholder="WhatsApp">
 </div>
-
 <div class="total" id="total">Total: R$ 14,00</div>
-
-<div class="card"><h
+<div class="card"><div class="pix-box">PIX Celular<br><b>55999292670000</b></div></div>
+</div>
+<div class="foot">
+<button class="btn btn-pix" onclick="copiarPix()">COPIAR PIX</button>
+<button class="btn btn-zap" onclick="enviarZap()">JÁ PAGUEI • ENVIAR</button>
+</div>
+<script>
+let tamanho='300ml',preco=14,toppings=[];
+function setSize(el,t,p){document.querySelectorAll('.size').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');tamanho=t;preco=p;document.getElementById('total').innerText='Total: R$ '+p+',00'}
+function toggleTop(el){let v=el.innerText;if(el.classList.contains('active')){el.classList.remove('active');toppings=toppings.filter(x=>x!=v)}else{if(toppings.length>=5){alert('Máximo 5 adicionais!');return}el.classList.add('active');toppings.push(v)}}
+function copiarPix(){let chave='55999292670000';let aux=document.createElement('input');aux.value=chave;document.body.appendChild(aux);aux.select();document.execCommand('copy');document.body.removeChild(aux);alert('PIX 55999292670000 copiado! ✅')}
+function enviarZap(){let n=document.getElementById('nome').value;let e=document.getElementById('end').value;if(!n){alert('Coloque seu nome!');return}if(!e){alert('Coloque seu endereço!');return}let t=document.getElementById('tel').value;let msg=`🍧 *PEDIDO AÇAÍ DO PONTO*%0A%0ANome: ${n}%0ATamanho: ${tamanho} - R$${preco}%0AAdicionais: ${toppings.join(', ')||'Puro'}%0AEnd: ${e}%0ATel: ${t}%0A%0APIX 99292670000 PAGO ✅`;window.location.href='https://wa.me/5555992926700?text='+msg}
+</script>
+</body>
+</html>
