@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Acai do Ponto - Alegrete</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Açaí do Ponto - Carazinho</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:linear-gradient(135deg,#4a148c,#7b1fa2);min-height:100vh;color:#fff;display:flex;justify-content:center;padding:15px}
-.card{background:#fff;color:#333;border-radius:20px;max-width:400px;width:100%;padding:25px;text-align:center;margin:auto}
-.pix{border:2px dashed #7b1fa2;border-radius:12px;padding:12px;margin:15px 0;background:#f3e5f5}
-.btn{width:100%;padding:15px;border:none;border-radius:12px;font-weight:bold;font-size:16px;margin:8px 0;cursor:pointer}
-.btn-pix{background:#7b1fa2;color:#fff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#f5f0fa;padding:0 0 100px;color:#333}
+.header{background:linear-gradient(135deg,#4a148c,#7b1fa2);color:#fff;padding:25px 20px;text-align:center;border-radius:0 0 25px 25px}
+.card{background:#fff;margin:15px;border-radius:18px;padding:18px;box-shadow:0 4px 15px rgba(0,0,0,.08)}
+.titulo{color:#4a148c;font-weight:900;margin-bottom:12px}
+.prod{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
+.prod b{color:#4a148c}
+.btn-add{background:#4a148c;color:#fff;border:none;padding:8px 14px;border-radius:10px;font-weight:bold;cursor:pointer}
+.pixbox{background:#f3e5f5;border:2px dashed #7b1fa2;border-radius:14px;padding:14px;text-align:center;margin:15px 0}
+.carrinho{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:15px;border-top:2px solid #4a148c;display:flex;flex-direction:column;gap:8px;box-shadow:0 -5px 20px rgba(0,0,0,.15)}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;font-weight:900;font-size:16px;cursor:pointer}
+.btn-pix{background:#4a148c;color:#fff}
 .btn-whats{background:#25D366;color:#fff}
+.tag{background:#e1bee7;color:#4a148c;padding:2px 8px;border-radius:8px;font-size:11px;font-weight:bold}
 </style>
 </head>
 <body>
+<div class="header">
+<h1>🍧 AÇAÍ DO PONTO</h1>
+<p>Carazinho - RS | Entrega rápida</p>
+<p style="margin-top:8px;background:rgba(255,255,255,.2);display:inline-block;padding:5px 12px;border-radius:20px">📱 PIX: 99292670000</p>
+</div>
+
 <div class="card">
-<h1 style="color:#4a148c">🍧 Açai do Ponto</h1>
-<p>Alegrete - RS | Entrega rápida</p>
-<div class="pix">
-<strong>PIX: 99292670000</strong><br>
-<small>Tel: (55) 99292-6700</small>
+<div class="titulo">🥤 ESCOLHA O TAMANHO</div>
+<div class="prod"><div><b>300ml</b><br><small>Puro + 3 adicionais</small></div><div><b>R$14</b> <button class="btn-add" onclick="add('Açaí 300ml',14)">+ Add</button></div></div>
+<div class="prod"><div><b>500ml</b> <span class="tag">MAIS PEDIDO</span><br><small>Puro + 4 adicionais</small></div><div><b>R$20</b> <button class="btn-add" onclick="add('Açaí 500ml',20)">+ Add</button></div></div>
+<div class="prod"><div><b>700ml</b><br><small>Puro + 5 adicionais</small></div><div><b>R$28</b> <button class="btn-add" onclick="add('Açaí 700ml',28)">+ Add</button></div></div>
+<div class="prod" style="border:none"><div><b>1 Litro</b><br><small>Família completa</small></div><div><b>R$38</b> <button class="btn-add" onclick="add('Açaí 1L',38)">+ Add</button></div></div>
 </div>
-<button class="btn btn-pix" onclick="navigator.clipboard.writeText('99292670000');alert('PIX COPIADO! 99292670000')">COPIAR CHAVE PIX</button>
-<button class="btn btn-whats" onclick="window.open('https://wa.me/5555991600621?text=Ola! Quero pedir acai! Já fiz o PIX','_blank')">JÁ PAGUEI - ENVIAR COMPROVANTE</button>
-<h3 style="margin-top:20px;color:#4a148c">Cardápio</h3>
-<p>300ml - R$14 | 500ml - R$20 | 700ml - R$28</p>
+
+<div class="card">
+<div class="titulo">🍫 ADICIONAIS GRÁTIS</div>
+<p style="font-size:13px;color:#666;margin-bottom:10px">Marque os adicionais do seu açaí:</p>
+<label><input type="checkbox" value="Banana"> Banana</label><br>
+<label><input type="checkbox" value="Morango"> Morango</label><br>
+<label><input type="checkbox" value="Leite em pó"> Leite em pó</label><br>
+<label><input type="checkbox" value="Leite Condensado"> Leite Condensado</label><br>
+<label><input type="checkbox" value="Granola"> Granola</label><br>
+<label><input type="checkbox" value="Paçoca"> Paçoca</label><br>
+<label><input type="checkbox" value="Nutella"> Nutella (+R$3)</label>
 </div>
+
+<div class="card">
+<div class="pixbox">
+<b style="color:#4a148c">💜 PAGAMENTO VIA PIX</b><br>
+CHAVE: <b>99292670000</b><br><small>(55) 99292-6700 - Naiara Jacques</small>
+</div>
+</div>
+
+<div class="carrinho">
+<div style="display:flex;justify-content:space-between"><span id="lista">Carrinho vazio</span><b id="total">R$0,00</b></div>
+<button class="btn btn-pix" onclick="copiarPix()">📋 COPIAR CHAVE PIX (99292670000)</button>
+<button class="btn btn-whats" onclick="enviarZap()">✅ JÁ PAGUEI - ENVIAR PEDIDO NO WHATSAPP</button>
+</div>
+
+<script>
+let carrinho=[];let total=0;
+function add(nome,preco){
+carrinho.push(nome);total+=preco;
+atualiza();
+}
+function atualiza(){
+document.getElementById('lista').innerText=carrinho.length?carrinho.join(', '):'Carrinho vazio';
+document.getElementById('total').innerText='R$'+total.toFixed(2).replace('.',',');
+}
+function copiarPix(){
+navigator.clipboard.writeText('99292670000');
+alert('PIX COPIADO: 99292670000\nNaiara Jacques');
+}
+function enviarZap(){
+if(!total){alert('Adicione um açaí primeiro!');return}
+let adicionais=[...document.querySelectorAll('input:checked')].map(i=>i.value).join(', ');
+let msg=`Olá Açaí do Ponto!%0A%0A🛒 PEDIDO: ${carrinho.join(', ')}%0A🍫 Adicionais: ${adicionais||'Padrão'}%0A💰 Total: R$${total}%0A%0A✅ Já fiz o PIX para 99292670000%0A%0A📍 Meu endereço: `;
+window.open('https://wa.me/5555991600621?text='+msg,'_blank');
+}
+</script>
 </body>
 </html>
