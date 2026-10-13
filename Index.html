@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acai do Ponto - Alegrete</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:linear-gradient(135deg,#4a148c,#7b1fa2);min-height:100vh;color:#fff;display:flex;justify-content:center;padding:15px}
+.card{background:#fff;color:#333;border-radius:20px;max-width:400px;width:100%;padding:25px;text-align:center;margin:auto}
+.pix{border:2px dashed #7b1fa2;border-radius:12px;padding:12px;margin:15px 0;background:#f3e5f5}
+.btn{width:100%;padding:15px;border:none;border-radius:12px;font-weight:bold;font-size:16px;margin:8px 0;cursor:pointer}
+.btn-pix{background:#7b1fa2;color:#fff}
+.btn-whats{background:#25D366;color:#fff}
+</style>
+</head>
+<body>
+<div class="card">
+<h1 style="color:#4a148c">🍧 Açai do Ponto</h1>
+<p>Alegrete - RS | Entrega rápida</p>
+<div class="pix">
+<strong>PIX: 99292670000</strong><br>
+<small>Tel: (55) 99292-6700</small>
+</div>
+<button class="btn btn-pix" onclick="navigator.clipboard.writeText('99292670000');alert('PIX COPIADO! 99292670000')">COPIAR CHAVE PIX</button>
+<button class="btn btn-whats" onclick="window.open('https://wa.me/5555991600621?text=Ola! Quero pedir acai! Já fiz o PIX','_blank')">JÁ PAGUEI - ENVIAR COMPROVANTE</button>
+<h3 style="margin-top:20px;color:#4a148c">Cardápio</h3>
+<p>300ml - R$14 | 500ml - R$20 | 700ml - R$28</p>
+</div>
+</body>
+</html>
