@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Beats Açaí</title>
+<title>TELE BUSCA</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 body{background:#0a0414;color:#fff;padding-bottom:110px}
@@ -37,32 +37,27 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 </style>
 </head>
 <body>
-<div class="header"><div class="logo">🍧</div><h1>THE BEATS AÇAÍ</h1><div><span class="badge">⭐ 4.9 (312)</span><span class="badge">🔥 127 hoje</span><span class="badge">🟢 Aberto</span></div></div>
-<div class="fretegratis">🎉 FRETE GRÁTIS • 23 pessoas vendo agora</div>
+<div class="header"><div class="logo">📱🏍️🚀</div><h1>TELE BUSCA</h1><div><span class="badge">⭐ 4.9 (312)</span><span class="badge">🔥 127 hoje</span><span class="badge">🟢 Aberto</span></div></div>
+<div class="fretegratis">🎉 FRETE GRÁTIS ACIMA DE 150 • 23 pessoas vendo agora</div>
 
 <div class="container">
-<div class="card"><h2>🍧 TAMANHO</h2><div class="sizes">
-<button type="button" class="size on" id="s300" onclick="tam('300ml',14,'s300')"><b>300ml</b><br><small>R$ 14,00</small></button>
-<button type="button" class="size" id="s500" onclick="tam('500ml',20,'s500')"><b>500ml</b><br><small>R$ 20,00</small></button>
-<button type="button" class="size" id="s700" onclick="tam('700ml',26,'s700')"><b>700ml</b><br><small>R$ 26,00</small></button>
-<button type="button" class="size" id="s1L" onclick="tam('1L',34,'s1L')"><b>1 Litro</b><br><small>R$ 34,00</small></button>
+<div class="card"><h2>🚀 TAMANHO</h2><div class="sizes">
+<button type="button" class="size on" id="s10" onclick="tam('10g',14,'s10')"><b>10g</b><br><small>R$ 50,00</small></button>
+<button type="button" class="size" id="s01" onclick="tam('01g',20,'s01')"><b>01g</b><br><small>R$ 50,00</small></button>
+<button type="button" class="size" id="s100" onclick="tam('25g',26,'s25')"><b>25g</b><br><small>R$ 100,00</small></button>
+<button type="button" class="size" id="s02" onclick="tam('2,5g',34,'s2,5')"><b>2,5g</b><br><small>R$ 100,00</small></button>
 </div></div>
 
 <div class="card"><h2>🔥 TURBINAR?</h2>
-<div class="up-item" id="u1" onclick="toggleUp('Nutella Extra',3.9,'u1')"><span>🍫 Nutella Extra</span><b>+ R$ 3,90</b></div>
-<div class="up-item" id="u2" onclick="toggleUp('Ninho Extra',2.5,'u2')"><span>🥛 Ninho Extra</span><b>+ R$ 2,50</b></div>
+<div class="up-item" id="u1" onclick="toggleUp('Peruana',3.9,'u1')"><span>⚡Peruana</span><b>+ R$ 30,00</b></div>
+<div class="up-item" id="u2" onclick="toggleUp('Prensado',2.5,'u2')"><span>🪵Prensado</span><b>+ R$ 30,00</b></div>
 </div>
 
-<div class="card"><h2>✨ ADICIONAIS GRÁTIS (5)</h2><div class="toppings">
-<span class="top" onclick="addTop(this)">Leite Condensado</span>
-<span class="top" onclick="addTop(this)">Paçoca</span>
-<span class="top" onclick="addTop(this)">Granola</span>
-<span class="top" onclick="addTop(this)">Banana</span>
-<span class="top" onclick="addTop(this)">Morango</span>
-<span class="top" onclick="addTop(this)">Nutella</span>
-<span class="top" onclick="addTop(this)">Leite Ninho</span>
-<span class="top" onclick="addTop(this)">Confete</span>
-</div><div id="cont" style="font-size:11px;color:#a78bfa;margin-top:8px">0/5 selecionados</div></div>
+<div class="card"><h2>✨ ADICIONAIS (5)</h2><div class="toppings">
+<span class="top" onclick="addTop(this)">Entrega com urgência</span>
+<span class="top" onclick="addTop(this)">Pagamento em dinheiro</span>
+<span class="top" onclick="addTop(this)">Quero uma quantia maior</span>
+</div><div id="cont" style="font-size:11px;color:#a78bfa;margin-top:8px">0/3 selecionados</div></div>
 
 <div class="card"><h2>👤 SEUS DADOS</h2>
 <input id="nome" placeholder="Seu nome">
@@ -70,7 +65,7 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 <input id="tel" placeholder="WhatsApp">
 </div>
 
-<div class="total" id="total">Total: R$ 14,00</div>
+<div class="total" id="total">Total: R$ 50,00</div>
 <div class="card"><div class="pix-box">PIX: <b>99292670000</b></div></div>
 </div>
 
@@ -80,13 +75,13 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 </div>
 
 <script>
-var tamanho='300ml'; var preco=14; var lista=[]; var extras=[]; var totalExtra=0;
+var tamanho='10g'; var preco=50; var lista=[]; var extras=[]; var totalExtra=0;
 function tam(t,p,id){
   tamanho=t; preco=p;
-  document.getElementById('s300').className='size';
-  document.getElementById('s500').className='size';
-  document.getElementById('s700').className='size';
-  document.getElementById('s1L').className='size';
+  document.getElementById('10g').className='size';
+  document.getElementById('s01g').className='size';
+  document.getElementById('s25g').className='size';
+  document.getElementById('s2,5g').className='size';
   document.getElementById(id).className='size on';
   calc();
 }
@@ -119,7 +114,7 @@ function mandaZap(){
   var ex=extras.map(function(x){return x.nome}).join(', ');
   var totalFinal=(preco+totalExtra).toFixed(2);
   var msg='PEDIDO THE BEATS%0ANome: '+n+'%0ATamanho: '+tamanho+' R$'+preco+'%0AGratis: '+lista.join(', ')+'%0A'+(ex?'Extras: '+ex+'%0A':'')+'End: '+e+'%0ATel: '+t+'%0ATotal: R$ '+totalFinal+'%0APIX PAGO';
-  window.location.href='https://wa.me/55991600621?text='+msg;
+  window.location.href='https://wa.me/54991334818?text='+msg;
 }
 </script>
 </body>
