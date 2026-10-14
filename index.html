@@ -7,16 +7,24 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Segoe UI,sans-serif}
 body{background:#0a0414;color:#fff;padding-bottom:120px;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 0%,#7c1cf6 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,#ff00e5 0%,transparent 40%),#0a0414;z-index:-1}
-.header{text-align:center;padding:35px 15px 20px}
+.header{text-align:center;padding:25px 15px 10px}
 .logo{width:90px;height:90px;margin:0 auto 15px;border:2px solid #b24bff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 25px #7c1cf6;font-size:40px;background:rgba(124,28,246,.15)}
 .header h1{font-size:38px;letter-spacing:8px;font-weight:200;text-shadow:0 0 15px #b24bff;color:#e9c6ff}
-.header p{color:#a78bfa;letter-spacing:3px;font-size:12px;margin-top:8px}
+.social-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:15px auto;max-width:500px;padding:0 16px}
+.badge{background:rgba(255,255,255,.08);border:1px solid rgba(178,75,255,.3);border-radius:20px;padding:6px 12px;font-size:11px;display:flex;align-items:center;gap:6px}
+.badge.live{border-color:#22c55e;color:#bbf7d0;animation:pulse 2s infinite}
+.badge.star{color:#facc15}
+.badge.fire{color:#fb923c}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+.urgency{background:linear-gradient(90deg,#7c1cf6,#ff00e5);border-radius:14px;padding:10px 14px;margin:0 auto 14px;max-width:500px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;animation:glow 2s infinite alternate}
+@keyframes glow{from{box-shadow:0 0 10px rgba(124,28,246,.5)}to{box-shadow:0 0 20px rgba(255,0,229,.7)}}
 .container{max-width:500px;margin:0 auto;padding:0 16px}
 .card{background:rgba(255,255,255,.06);backdrop-filter:blur(15px);border:1px solid rgba(178,75,255,.25);border-radius:20px;padding:18px;margin-bottom:14px}
-.card h2{font-size:13px;letter-spacing:2px;color:#d8b4fe;margin-bottom:12px}
+.card h2{font-size:13px;letter-spacing:2px;color:#d8b4fe;margin-bottom:12px;display:flex;justify-content:space-between}
 .sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.size{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px;text-align:center;cursor:pointer;background:rgba(0,0,0,.3)}
+.size{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px;text-align:center;cursor:pointer;background:rgba(0,0,0,.3);position:relative}
 .size.selected{border-color:#b24bff;background:rgba(178,75,255,.2);box-shadow:0 0 15px rgba(178,75,255,.4)}
+.size .pop{position:absolute;top:-8px;right:-8px;background:#facc15;color:#000;font-size:9px;font-weight:800;padding:3px 7px;border-radius:10px}
 .toppings{display:flex;flex-wrap:wrap;gap:8px}
 .top{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 14px;font-size:13px;cursor:pointer;color:#ddd}
 .top.active{background:#b24bff;border-color:#b24bff;color:#fff}
@@ -24,50 +32,17 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 .foot{position:fixed;bottom:0;left:0;right:0;background:rgba(10,4,20,.95);border-top:1px solid rgba(178,75,255,.3);padding:12px 16px;display:flex;gap:10px;z-index:10}
 .btn{flex:1;border:none;border-radius:12px;padding:14px;font-weight:700;cursor:pointer}
 .btn-pix{background:#fff;color:#000}
-.btn-zap{background:linear-gradient(135deg,#7c1cf6,#b24bff);color:#fff}
+.btn-zap{background:linear-gradient(135deg,#7c1cf6,#b24bff);color:#fff;box-shadow:0 0 20px rgba(124,28,246,.5)}
 .total{text-align:center;margin:10px 0;color:#d8b4fe;font-weight:600}
 .pix-box{background:rgba(178,75,255,.1);border:1px dashed #b24bff;border-radius:12px;padding:12px;text-align:center;margin-top:12px}
+.viewers{font-size:11px;color:#a78bfa;margin-top:8px;text-align:center}
+.toast{position:fixed;bottom:85px;left:16px;background:rgba(0,0,0,.85);border:1px solid rgba(178,75,255,.4);border-radius:14px;padding:10px 14px;display:flex;gap:10px;align-items:center;font-size:12px;z-index:20;transform:translateX(-120%);transition:.5s}
+.toast.show{transform:translateX(0)}
+.reviews{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none}
+.review{min-width:220px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px}
 </style>
 </head>
 <body>
 <div class="header"><div class="logo">🍧</div><h1>THE BEATS AÇAÍ</h1><p>BOWLS • SMOOTHIES • GOOD</p></div>
-<div class="container">
-<div class="card"><h2>TAMANHO</h2>
-<div class="sizes">
-<div class="size selected" onclick="setSize(this,'300ml',14)"><b>300ml</b><br><small>R$ 14,00</small></div>
-<div class="size" onclick="setSize(this,'500ml',20)"><b>500ml</b><br><small>R$ 20,00</small></div>
-<div class="size" onclick="setSize(this,'700ml',26)"><b>700ml</b><br><small>R$ 26,00</small></div>
-<div class="size" onclick="setSize(this,'1L',34)"><b>1 Litro</b><br><small>R$ 34,00</small></div>
-</div></div>
-<div class="card"><h2>ADICIONAIS GRÁTIS (5)</h2>
-<div class="toppings">
-<span class="top" onclick="toggleTop(this)">Leite Condensado</span>
-<span class="top" onclick="toggleTop(this)">Paçoca</span>
-<span class="top" onclick="toggleTop(this)">Granola</span>
-<span class="top" onclick="toggleTop(this)">Banana</span>
-<span class="top" onclick="toggleTop(this)">Morango</span>
-<span class="top" onclick="toggleTop(this)">Nutella</span>
-<span class="top" onclick="toggleTop(this)">Leite Ninho</span>
-<span class="top" onclick="toggleTop(this)">Confete</span>
-</div></div>
-<div class="card"><h2>SEUS DADOS</h2>
-<input id="nome" placeholder="Seu nome">
-<input id="end" placeholder="Endereço + bairro">
-<input id="tel" placeholder="WhatsApp">
-</div>
-<div class="total" id="total">Total: R$ 14,00</div>
-<div class="card"><div class="pix-box">PIX Cpf<br><b>99292670000</b></div></div>
-</div>
-<div class="foot">
-<button class="btn btn-pix" onclick="copiarPix()">COPIAR PIX</button>
-<button class="btn btn-zap" onclick="enviarZap()">JÁ PAGUEI • ENVIAR</button>
-</div>
-<script>
-let tamanho='300ml',preco=14,toppings=[];
-function setSize(el,t,p){document.querySelectorAll('.size').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');tamanho=t;preco=p;document.getElementById('total').innerText='Total: R$ '+p+',00'}
-function toggleTop(el){let v=el.innerText;if(el.classList.contains('active')){el.classList.remove('active');toppings=toppings.filter(x=>x!=v)}else{if(toppings.length>=5){alert('Máximo 5 adicionais!');return}el.classList.add('active');toppings.push(v)}}
-function copiarPix(){let chave='55999292670000';let aux=document.createElement('input');aux.value=chave;document.body.appendChild(aux);aux.select();document.execCommand('copy');document.body.removeChild(aux);alert('PIX 99292670000 copiado! ✅')}
-function enviarZap(){let n=document.getElementById('nome').value;let e=document.getElementById('end').value;if(!n){alert('Coloque seu nome!');return}if(!e){alert('Coloque seu endereço!');return}let t=document.getElementById('tel').value;let msg=`🍧 *PEDIDO THE BEATS AÇAÍ*%0A%0ANome: ${n}%0ATamanho: ${tamanho} - R$${preco}%0AAdicionais: ${toppings.join(', ')||'Puro'}%0AEnd: ${e}%0ATel: ${t}%0A%0APIX 99292670000 PAGO ✅`;window.location.href='https://wa.me/55991600621?text='+msg}
-</script>
-</body>
-</html>
+<div class="social-bar">
+<div class="badge star">⭐ 4.9 (312 avaliações)</
