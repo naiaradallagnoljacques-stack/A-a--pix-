@@ -3,38 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Beats Açaí - Final com Confete</title>
+<title>The Beats Açaí</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Arial,sans-serif}
-body{background:#0a0414;color:#fff;padding-bottom:110px;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top,#7c1cf6 0%,transparent 60%),radial-gradient(ellipse at bottom,#ff00e5 0%,transparent 50%),#0a0414;z-index:-1}
-.header{text-align:center;padding:25px 15px 10px}
-.logo{width:80px;height:80px;margin:0 auto 12px;border:2px solid #b24bff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;background:rgba(124,28,246,.2);box-shadow:0 0 20px #7c1cf6}
-.header h1{font-size:32px;letter-spacing:6px;color:#e9c6ff;font-weight:200}
-.badge{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(178,75,255,.3);border-radius:20px;padding:4px 10px;font-size:11px;margin:3px}
-.fretegratis{background:linear-gradient(90deg,#7c1cf6,#ff00e5);border-radius:12px;padding:8px;text-align:center;font-size:12px;font-weight:700;margin:10px 16px}
-.container{max-width:500px;margin:0 auto;padding:0 14px}
-.card{background:rgba(255,255,255,.06);backdrop-filter:blur(12px);border:1px solid rgba(178,75,255,.25);border-radius:18px;padding:16px;margin-bottom:12px}
-.card h2{font-size:12px;letter-spacing:2px;color:#d8b4fe;margin-bottom:12px}
-.sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.size{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px;text-align:center;cursor:pointer;background:rgba(0,0,0,.35);color:#fff}
-.size.on{border-color:#b24bff;background:linear-gradient(135deg,rgba(178,75,255,.35),rgba(124,28,246,.35));box-shadow:0 0 15px rgba(178,75,255,.4)}
-.toppings{display:flex;flex-wrap:wrap;gap:7px}
-.top{border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:7px 13px;font-size:12px;cursor:pointer;background:rgba(0,0,0,.35);color:#ddd}
-.top.on{background:linear-gradient(90deg,#7c1cf6,#b24bff);color:#fff}
-.up-item{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
-.up-item.on{border-color:#facc15;background:rgba(250,204,21,.15)}
-input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:13px;color:#fff;margin-top:8px;outline:none}
-.foot{position:fixed;bottom:0;left:0;right:0;background:rgba(10,4,20,.96);border-top:1px solid rgba(178,75,255,.4);padding:12px 14px;display:flex;gap:10px;z-index:999}
-.btn{flex:1;border:none;border-radius:14px;padding:15px;font-weight:800;cursor:pointer;font-size:14px}
+body{margin:0;background:#0a0414;color:#fff;font-family:Arial;padding-bottom:100px}
+.header{text-align:center;padding:15px;background:#111}
+.container{padding:10px;max-width:500px;margin:auto}
+.card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:12px;margin-bottom:10px}
+.size{display:inline-block;width:48%;border:1px solid #555;border-radius:10px;padding:12px;text-align:center;margin:1%;background:#222;color:#fff}
+.size.on{border-color:#b24bff;background:#2a1845}
+.top{display:inline-block;border:1px solid #555;border-radius:20px;padding:6px 12px;margin:4px;font-size:12px;background:#222;color:#fff}
+.top.on{background:#b24bff}
+input{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:1px solid #444;background:#222;color:#fff;box-sizing:border-box}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#000;padding:10px;display:flex;gap:8px;border-top:2px solid #b24bff}
+.foot button{flex:1;padding:14px;border:none;border-radius:10px;font-weight:bold;font-size:14px}
 #btnPix{background:#fff;color:#000}
-#btnZap{background:linear-gradient(135deg,#7c1cf6,#ff00e5);color:#fff}
-.total{text-align:center;margin:14px 0;color:#e9c6ff;font-weight:800;font-size:16px}
-.pix-box{background:rgba(178,75,255,.12);border:1px dashed #b24bff;border-radius:12px;padding:12px;text-align:center}
+#btnZap{background:#7c1cf6;color:#fff}
+/* ANIMAÇÃO QUE NÃO QUEBRA */
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+#btnZap{animation:pulse 1.5s infinite}
+.confetti{position:fixed;top:0;width:8px;height:8px;pointer-events:none;z-index:9999}
+</style>
+</head>
+<body>
+<div class="header"><h1>🍧 THE BEATS AÇAÍ</h1><p>⭐ 4.9 | 🔥 127 hoje | 🟢 Aberto</p></div>
 
-/* ANIMAÇÃO PULSANDO + CONFETE */
-@keyframes pulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(178,75,255,.7)}70%{transform:scale(1.05);box-shadow:0 0 0 12px rgba(178,75,255,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(178,75,255,0)}}
-#btnZap{animation:pulse 1.8s infinite}
-.size.on{animation:pulse 2s infinite}
-.confetti{position:fixed;top:-10px;width:8px;height:14px;z-index:9999;pointer-events:none;animation:fall linear forwards}
-@keyframes fall{0%{transform:translateY(0) rotate(0deg) translateX(0
+<div class="container">
+<div class="card"><b>TAMANHO</b><br><br>
+<button type="button" class="size on" id="s300" onclick="tam('300ml',14,'s300')">300ml<br>R$14</button>
+<button type="button" class="size" id="s500" onclick="tam('500ml',20,'s500')">500ml<br>R$20</button>
+<button type="button" class="size" id="s700" onclick="tam('700ml',26,'s700')">700ml<br>R$26</button>
+<button type="button" class="size" id="s1L" onclick="tam('1L',34,'s1L')">1L<br>R$34</button>
+</div>
+
+<div class="card"><b>ADICIONAIS GRÁTIS (5)</b><br><br>
+<span class="top" onclick="addTop(this)">Leite Condensado</span>
+<span class="top" onclick="addTop(this)">Paçoca</span>
+<span class="top" onclick="addTop(this)">Granola</span>
+<span class="top" onclick="addTop(this)">Banana</span>
+<span class="top" onclick="addTop(this)">Morango</span>
+<span class="top" onclick="addTop(this)">Nutella</span>
+<span class="top" onclick="addTop(this)">Leite Ninho</span>
+<span class="top" onclick="addTop(this)">Confete</span>
+<div id="cont" style="margin-top:8px;font-size:11px;color:#aaa">0/5</div>
+</div>
+
+<div class="card"><b>SEUS DADOS</b>
+<input id="nome" placeholder="Seu nome">
+<input id="end" placeholder="Endereço completo">
+<input id="tel" placeholder="WhatsApp">
+</div>
+
+<div class="card" style="text-align:center"><b id="total">Total: R$ 14,00</b><br><br>PIX: <b>99292670000</b></div>
+</div>
+
+<div class="foot">
+<button type="button" id="btnPix" onclick="copiaPix()">COPIAR PIX</button>
+<button type="button" id="btnZap" onclick="mandaZap()">ENVIAR NO ZAP</button>
+</div>
+
+<script>
+var tamanho='300ml'; var preco=14; var lista=[];
+function tam(t,p,id){
+  tamanho=t; preco=p;
+  document.getElementById('s300').className='size';
+  document.getElementById('s500').className='size';
+  document.getElementById('s700').className='size';
+  document.getElementById('s1L').className='size';
+  document.getElementById(id).className='size on';
+  document.getElementById('total').innerText='Total: R$ '+preco+',00';
+  confete();
+}
+function addTop(el){
+  if(el.className=='top on'){el.className='top'; lista=lista.filter(function(x){return x!=el.innerText});}
+  else{if(lista.length>=5){alert('Máximo 5!');return} el.className='top on'; lista.push(el.innerText); confete();}
+  document.getElementById('cont').innerText=lista.length+'/5';
+}
+function copiaPix(){
+  var chave='99292670000';
+  var a=document.createElement('input'); a.value=chave; document.body.appendChild(a); a.select(); document.execCommand('copy'); document.body.removeChild(a);
+  alert('PIX COPIADO: '+chave); confete();
+}
+function mandaZap(){
+  var n=document.getElementById('nome').value;
+  var e=document.getElementById('end').value;
+  if(n==''){alert('Digite nome');return}
+  if(e==''){alert('Digite endereço');return}
+  confete();
+  setTimeout(function(){
+    var msg='PEDIDO THE BEATS%0ANome: '+n+'%0ATamanho: '+tamanho+'%0AAdicionais: '+lista.join(', ')+'%0AEnd: '+e;
+    window.location.href='https://wa.me/55991600621?text='+msg;
+  },400);
+}
+function confete(){
+  for(var i=0;i<12;i++){
+    var c=document.createElement('div'); c.className='confetti';
+    c.style.left=Math.random()*100+'%'; c.style.top='-10px';
+    c.style.background=['#7c1cf6','#ff00e5','#facc15','#fff'][Math.floor(Math.random()*4)];
+    c.style.width='8px'; c.style.height='12px';
+    document.body.appendChild(c);
+    var anim=c.animate([{transform:'translateY(0) rotate(0deg)',opacity:1},{transform:'translateY(100vh) rotate(720deg)',opacity:0}],{duration:2000+Math.random()*1000});
+    anim.onfinish=function(){this.effect.target.remove()};
+  }
+}
+</script>
+</body>
+</html>
