@@ -37,36 +37,58 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 </style>
 </head>
 <body>
-<div class="header"><div class="logo">📱🏍️🚀</div><h1>TELE BUSCA</h1><div><span class="badge">⭐ 4.9 (312)</span><span class="badge">🔥 127 hoje</span><span class="badge">🟢 Aberto</span></div></div>
+<div class="header"><div class="logo">🏍️📱🚀</div><h1>TELE BUSCA</h1><div><span class="badge">⭐ 4.9 (312)</span><span class="badge">🔥 127 hoje</span><span class="badge">🟢 Aberto</span></div></div>
 <div class="fretegratis">🎉 FRETE GRÁTIS ACIMA DE 150 • 23 pessoas vendo agora</div>
 
-<div class="card"><h2>🚀 TAMANHO</h2><div class="sizes">
+<div class="container">
+<div class="card"><h2>💰 PESO OURO</h2><div class="sizes">
 <button type="button" class="size on" id="s10" onclick="tam('10g',50,'s10')"><b>10g</b><br><small>R$ 50,00</small></button>
 <button type="button" class="size" id="s01" onclick="tam('01g',50,'s01')"><b>01g</b><br><small>R$ 50,00</small></button>
 <button type="button" class="size" id="s25" onclick="tam('25g',100,'s25')"><b>25g</b><br><small>R$ 100,00</small></button>
-<button type="button" class="size" id="s2" onclick="tam('2,5g',100,'s2')"><b>2,5g</b><br><small>R$ 100,00</small></button>
+<button type="button" class="size" id="s02" onclick="tam('02g',100,'s02')"><b>02g</b><br><small>R$ 100,00</small></button>
 </div></div>
 
-<script>
-// COPIA ESSA FUNCAO NOVA - ATUALIZADA PARA SEUS IDS
-var tamanho='10g'; var preco=50; var lista=[]; var extras=[]; var totalExtra=0;
+<div class="card"><h2>🔥 TURBINAR?</h2>
+<div class="up-item" id="u1" onclick="toggleUp('Prensado Extra',29.9,'u1')"><span>📱 Prensado extra</span><b>+ R$ 29,90</b></div>
+<div class="up-item" id="u2" onclick="toggleUp('Peruana Extra',29.9,'u2')"><span>⚡ Peruana Extra</span><b>+ R$ 29,90</b></div>
+</div>
 
+<div class="card"><h2>✨ ADICIONAIS GRÁTIS (5)</h2><div class="toppings">
+<span class="top" onclick="addTop(this)">Tele Busca</span>
+<span class="top" onclick="addTop(this)">Tele Busca</span>
+<span class="top" onclick="addTop(this)">Tele Busca</span>
+<span class="top" onclick="addTop(this)">Tele Busca</span>
+<span class="top" onclick="addTop(this)">Tele Busca</span>
+<span class="top" onclick="addTop(this)">Tele Busca</span>
+<span class="top" onclick="addTop(this)">Tele Busca</span>
+<span class="top" onclick="addTop(this)">Tele Busca</span>
+</div><div id="cont" style="font-size:11px;color:#a78bfa;margin-top:8px">0/5 selecionados</div></div>
+
+<div class="card"><h2>👤 SEUS DADOS</h2>
+<input id="nome" placeholder="Seu nome">
+<input id="end" placeholder="Endereço completo">
+<input id="tel" placeholder="WhatsApp">
+</div>
+
+<div class="total" id="total">Total: R$ 50,00</div>
+<div class="card"><div class="pix-box">PIX: <b>99292670000</b></div></div>
+</div>
+
+<div class="foot">
+<button type="button" class="btn" id="btnPix" onclick="copiaPix()">📋 COPIAR PIX</button>
+<button type="button" class="btn" id="btnZap" onclick="mandaZap()">✅ ENVIAR ZAP</button>
+</div>
+
+<script>
+var tamanho='10g'; var preco=50; var lista=[]; var extras=[]; var totalExtra=0;
 function tam(t,p,id){
   tamanho=t; preco=p;
   document.getElementById('s10').className='size';
   document.getElementById('s01').className='size';
   document.getElementById('s25').className='size';
-  document.getElementById('s2').className='size';
+  document.getElementById('s02').className='size';
   document.getElementById(id).className='size on';
   calc();
-}
-function calc(){
-  totalExtra=0;
-  for(var i=0;i<extras.length;i++){totalExtra+=extras[i].valor}
-  var total=preco+totalExtra;
-  document.getElementById('total').innerText='Total: R$ '+total.toFixed(2);
-}
-
 }
 function addTop(el){
   if(el.className.indexOf('on')>-1){el.className='top'; lista=lista.filter(function(x){return x!=el.innerText});}
@@ -96,7 +118,7 @@ function mandaZap(){
   if(e==''){alert('Digite seu endereço');return}
   var ex=extras.map(function(x){return x.nome}).join(', ');
   var totalFinal=(preco+totalExtra).toFixed(2);
-  var msg='PEDIDO THE BEATS%0ANome: '+n+'%0ATamanho: '+tamanho+' R$'+preco+'%0AGratis: '+lista.join(', ')+'%0A'+(ex?'Extras: '+ex+'%0A':'')+'End: '+e+'%0ATel: '+t+'%0ATotal: R$ '+totalFinal+'%0APIX PAGO';
+  var msg='PEDIDO TELE BUSCA%0ANome: '+n+'%0ATamanho: '+tamanho+' R$'+preco+'%0AGratis: '+lista.join(', ')+'%0A'+(ex?'Extras: '+ex+'%0A':'')+'End: '+e+'%0ATel: '+t+'%0ATotal: R$ '+totalFinal+'%0APIX PAGO';
   window.location.href='https://wa.me/54991334818?text='+msg;
 }
 </script>
