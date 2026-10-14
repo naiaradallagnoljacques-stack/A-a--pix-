@@ -5,33 +5,56 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Beats Açaí</title>
 <style>
-body{margin:0;background:#0a0414;color:#fff;font-family:Arial;padding-bottom:100px}
-.header{text-align:center;padding:15px;background:#111}
-.container{padding:10px;max-width:500px;margin:auto}
-.card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:12px;margin-bottom:10px}
-.size{display:inline-block;width:48%;border:1px solid #555;border-radius:10px;padding:12px;text-align:center;margin:1%;background:#222;color:#fff}
-.size.on{border-color:#b24bff;background:#2a1845}
-.top{display:inline-block;border:1px solid #555;border-radius:20px;padding:6px 12px;margin:4px;font-size:12px;background:#222;color:#fff}
-.top.on{background:#b24bff}
-input{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:1px solid #444;background:#222;color:#fff;box-sizing:border-box}
-.foot{position:fixed;bottom:0;left:0;right:0;background:#000;padding:10px;display:flex;gap:8px;border-top:2px solid #b24bff}
-.foot button{flex:1;padding:14px;border:none;border-radius:10px;font-weight:bold;font-size:14px}
-#btnPix{background:#fff;color:#000}
-#btnZap{background:#7c1cf6;color:#fff}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Arial,sans-serif}
+body{background:#0a0414;color:#fff;padding-bottom:110px;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top,#7c1cf6 0%,transparent 60%),radial-gradient(ellipse at bottom,#ff00e5 0%,transparent 50%),#0a0414;z-index:-1}
+.header{text-align:center;padding:25px 15px 10px}
+.logo{width:80px;height:80px;margin:0 auto 12px;border:2px solid #b24bff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;background:rgba(124,28,246,.2);box-shadow:0 0 20px #7c1cf6}
+.header h1{font-size:32px;letter-spacing:6px;color:#e9c6ff;font-weight:200;text-shadow:0 0 15px #b24bff}
+.badges{margin-top:8px}
+.badge{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(178,75,255,.3);border-radius:20px;padding:4px 10px;font-size:11px;margin:3px}
+.fretegratis{background:linear-gradient(90deg,#7c1cf6,#ff00e5);border-radius:12px;padding:8px;text-align:center;font-size:12px;font-weight:700;margin:10px 16px}
+.container{max-width:500px;margin:0 auto;padding:0 14px}
+.card{background:rgba(255,255,255,.06);backdrop-filter:blur(12px);border:1px solid rgba(178,75,255,.25);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.card h2{font-size:12px;letter-spacing:2px;color:#d8b4fe;margin-bottom:12px}
+.sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.size{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px;text-align:center;cursor:pointer;background:rgba(0,0,0,.35);color:#fff;transition:.2s}
+.size.on{border-color:#b24bff;background:linear-gradient(135deg,rgba(178,75,255,.35),rgba(124,28,246,.35));box-shadow:0 0 15px rgba(178,75,255,.4);transform:scale(1.02)}
+.toppings{display:flex;flex-wrap:wrap;gap:7px}
+.top{border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:7px 13px;font-size:12px;cursor:pointer;background:rgba(0,0,0,.35);color:#ddd;transition:.2s}
+.top.on{background:linear-gradient(90deg,#7c1cf6,#b24bff);border-color:#b24bff;color:#fff;box-shadow:0 0 10px rgba(178,75,255,.5)}
+.up-item{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:.2s}
+.up-item.on{border-color:#facc15;background:rgba(250,204,21,.15)}
+input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:13px;color:#fff;margin-top:8px;outline:none;font-size:14px}
+input:focus{border-color:#b24bff;box-shadow:0 0 10px rgba(178,75,255,.3)}
+.foot{position:fixed;bottom:0;left:0;right:0;background:rgba(10,4,20,.96);backdrop-filter:blur(10px);border-top:1px solid rgba(178,75,255,.4);padding:12px 14px;display:flex;gap:10px;z-index:999}
+.btn{flex:1;border:none;border-radius:14px;padding:15px;font-weight:800;cursor:pointer;font-size:14px;transition:.2s}
+.btn:active{transform:scale(.97)}
+#btnPix{background:#fff;color:#000;box-shadow:0 4px 15px rgba(255,255,255,.2)}
+#btnZap{background:linear-gradient(135deg,#7c1cf6,#ff00e5);color:#fff;box-shadow:0 4px 15px rgba(124,28,246,.5)}
+.total{text-align:center;margin:14px 0;color:#e9c6ff;font-weight:800;font-size:16px;text-shadow:0 0 10px #b24bff}
+.pix-box{background:rgba(178,75,255,.12);border:1px dashed #b24bff;border-radius:12px;padding:12px;text-align:center}
 </style>
 </head>
 <body>
-<div class="header"><h1>🍧 THE BEATS AÇAÍ</h1><p>⭐ 4.9 | 🔥 127 hoje | 🟢 Aberto</p></div>
+<div class="header"><div class="logo">🍧</div><h1>THE BEATS AÇAÍ</h1><div class="badges"><span class="badge">⭐ 4.9 (312)</span><span class="badge">🔥 127 pedidos hoje</span><span class="badge">🟢 Aberto agora</span></div></div>
+<div class="fretegratis">🎉 FRETE GRÁTIS • Entrega em 25min • <span id="viewers">23</span> pessoas vendo</div>
 
 <div class="container">
-<div class="card"><b>TAMANHO</b><br><br>
-<button class="size on" id="s300" onclick="tam('300ml',14,'s300')">300ml<br>R$14</button>
-<button class="size" id="s500" onclick="tam('500ml',20,'s500')">500ml<br>R$20</button>
-<button class="size" id="s700" onclick="tam('700ml',26,'s700')">700ml<br>R$26</button>
-<button class="size" id="s1L" onclick="tam('1L',34,'s1L')">1L<br>R$34</button>
+<div class="card"><h2>🍧 TAMANHO</h2><div class="sizes">
+<button class="size on" id="s300" onclick="tam('300ml',14,'s300')"><b>300ml</b><br><small>R$ 14,00</small></button>
+<button class="size" id="s500" onclick="tam('500ml',20,'s500')"><b>500ml</b><br><small>R$ 20,00</small></button>
+<button class="size" id="s700" onclick="tam('700ml',26,'s700')"><b>700ml</b><br><small>R$ 26,00</small></button>
+<button class="size" id="s1L" onclick="tam('1L',34,'s1L')"><b>1 Litro</b><br><small>R$ 34,00</small></button>
+</div></div>
+
+<div class="card"><h2>🔥 TURBINAR? (89% adicionam)</h2>
+<div class="up-item" id="u1" onclick="toggleUp('Nutella Extra',3.9,'u1')"><span>🍫 Nutella Extra</span><b>+ R$ 3,90</b></div>
+<div class="up-item" id="u2" onclick="toggleUp('Ninho Extra',2.5,'u2')"><span>🥛 Leite Ninho Extra</span><b>+ R$ 2,50</b></div>
+<div class="up-item" id="u3" onclick="toggleUp('Morango Extra',3,'u3')"><span>🍓 Morango Extra</span><b>+ R$ 3,00</b></div>
 </div>
 
-<div class="card"><b>ADICIONAIS GRÁTIS (5)</b><br><br>
+<div class="card"><h2>✨ ADICIONAIS GRÁTIS (5)</h2><div class="toppings">
 <span class="top" onclick="addTop(this)">Leite Condensado</span>
 <span class="top" onclick="addTop(this)">Paçoca</span>
 <span class="top" onclick="addTop(this)">Granola</span>
@@ -40,25 +63,26 @@ input{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:1px solid 
 <span class="top" onclick="addTop(this)">Nutella</span>
 <span class="top" onclick="addTop(this)">Leite Ninho</span>
 <span class="top" onclick="addTop(this)">Confete</span>
-<div id="cont" style="margin-top:8px;font-size:11px;color:#aaa">0/5</div>
+</div><div id="cont" style="font-size:11px;color:#a78bfa;margin-top:8px">0/5 selecionados</div></div>
+
+<div class="card"><h2>👤 SEUS DADOS</h2>
+<input id="nome" placeholder="Seu nome completo">
+<input id="end" placeholder="Endereço + bairro + número">
+<input id="tel" placeholder="WhatsApp com DDD">
 </div>
 
-<div class="card"><b>SEUS DADOS</b>
-<input id="nome" placeholder="Seu nome">
-<input id="end" placeholder="Endereço completo">
-<input id="tel" placeholder="WhatsApp">
-</div>
-
-<div class="card" style="text-align:center"><b id="total">Total: R$ 14,00</b><br><br>PIX: <b>99292670000</b></div>
+<div class="total" id="total">Total: R$ 14,00</div>
+<div class="card"><div class="pix-box">💳 PIX CPF<br><b style="font-size:20px">99292670000</b><br><small style="color:#a78bfa">Clique em COPIAR PIX abaixo</small></div></div>
 </div>
 
 <div class="foot">
-<button id="btnPix" onclick="copiaPix()">COPIAR PIX</button>
-<button id="btnZap" onclick="mandaZap()">ENVIAR NO ZAP</button>
+<button class="btn" id="btnPix" onclick="copiaPix()">📋 COPIAR PIX</button>
+<button class="btn" id="btnZap" onclick="mandaZap()">✅ JÁ PAGUEI - ENVIAR</button>
 </div>
 
 <script>
-var tamanho='300ml'; var preco=14; var lista=[];
+// MESMA LÓGICA SIMPLES QUE FUNCIONOU
+var tamanho='300ml'; var preco=14; var lista=[]; var extras=[]; var totalExtra=0;
 function tam(t,p,id){
   tamanho=t; preco=p;
   document.getElementById('s300').className='size';
@@ -70,29 +94,33 @@ function tam(t,p,id){
 }
 function addTop(el){
   if(el.className=='top on'){el.className='top'; lista=lista.filter(x=>x!=el.innerText);}
-  else{if(lista.length>=5){alert('Máximo 5!');return} el.className='top on'; lista.push(el.innerText);}
-  document.getElementById('cont').innerText=lista.length+'/5';
+  else{if(lista.length>=5){alert('Máximo 5 grátis!');return} el.className='top on'; lista.push(el.innerText);}
+  document.getElementById('cont').innerText=lista.length+'/5 selecionados';
 }
-function calc(){document.getElementById('total').innerText='Total: R$ '+preco+',00';}
+function toggleUp(nome,valor,id){
+  var el=document.getElementById(id);
+  if(el.className=='up-item on'){el.className='up-item'; extras=extras.filter(x=>x.nome!=nome);}
+  else{el.className='up-item on'; extras.push({nome:nome,valor:valor});}
+  calc();
+}
+function calc(){
+  totalExtra=0; for(var i=0;i<extras.length;i++){totalExtra+=extras[i].valor}
+  var total=preco+totalExtra;
+  if(totalExtra>0){document.getElementById('total').innerText='Total: R$ '+preco+',00 + R$ '+totalExtra.toFixed(2).replace('.',',')+' = R$ '+total.toFixed(2).replace('.',',')}
+  else{document.getElementById('total').innerText='Total: R$ '+total+',00'}
+}
 function copiaPix(){
   var chave='99292670000';
-  var input=document.createElement('input');
-  input.value=chave;
-  document.body.appendChild(input);
-  input.select();
+  var aux=document.createElement('input');
+  aux.value=chave;
+  document.body.appendChild(aux);
+  aux.select();
   document.execCommand('copy');
-  document.body.removeChild(input);
-  alert('PIX COPIADO: '+chave);
+  document.body.removeChild(aux);
+  alert('✅ PIX COPIADO: '+chave);
 }
 function mandaZap(){
   var n=document.getElementById('nome').value;
   var e=document.getElementById('end').value;
   var t=document.getElementById('tel').value;
-  if(n==''){alert('Digite seu nome');return}
-  if(e==''){alert('Digite seu endereço');return}
-  var msg='PEDIDO THE BEATS%0ANome: '+n+'%0ATamanho: '+tamanho+' R$'+preco+'%0AAdicionais: '+lista.join(', ')+'%0AEnd: '+e+'%0ATel: '+t+'%0APIX PAGO';
-  window.location.href='https://wa.me/55991600621?text='+msg;
-}
-</script>
-</body>
-                                                     </html>
+  if(n=='
