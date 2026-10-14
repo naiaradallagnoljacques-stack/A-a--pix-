@@ -5,63 +5,78 @@
 <title>The Beats Açaí • Pedido</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Segoe UI,sans-serif}
-body{background:#0a0414;color:#fff;padding-bottom:120px;overflow-x:hidden}
+body{background:#0a0414;color:#fff;padding-bottom:160px;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 0%,#7c1cf6 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,#ff00e5 0%,transparent 40%),#0a0414;z-index:-1}
-.header{text-align:center;padding:35px 15px 10px}
-.logo{width:90px;height:90px;margin:0 auto 15px;border:2px solid #b24bff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 25px #7c1cf6;font-size:40px;background:rgba(124,28,246,.15)}
-.header h1{font-size:38px;letter-spacing:8px;font-weight:200;text-shadow:0 0 15px #b24bff;color:#e9c6ff}
-.social{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0 8px}
+.header{text-align:center;padding:30px 15px 10px}
+.logo{width:80px;height:80px;margin:0 auto 12px;border:2px solid #b24bff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px}
+.header h1{font-size:32px;letter-spacing:6px;color:#e9c6ff;font-weight:200}
+.social{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:10px}
 .social span{background:rgba(255,255,255,.08);border:1px solid rgba(178,75,255,.3);border-radius:20px;padding:5px 10px;font-size:11px}
-.fretegratis{background:linear-gradient(90deg,#7c1cf6,#ff00e5);border-radius:12px;padding:8px 12px;text-align:center;font-size:12px;font-weight:700;margin:0 16px 12px}
-/* FIDELIDADE */
-.fidelidade{background:linear-gradient(135deg,rgba(250,204,21,.2),rgba(178,75,255,.2));border:2px dashed #facc15;border-radius:16px;padding:14px;margin:0 16px 12px;text-align:center}
-.fidelidade .dots{display:flex;gap:6px;justify-content:center;margin:10px 0}
-.fidelidade .dot{width:28px;height:28px;border-radius:50%;border:2px solid #facc15;display:flex;align-items:center;justify-content:center;font-size:12px;background:rgba(0,0,0,.3)}
-.fidelidade .dot.active{background:#facc15;color:#000;box-shadow:0 0 10px #facc15}
+.fretegratis{background:linear-gradient(90deg,#7c1cf6,#ff00e5);border-radius:12px;padding:8px;text-align:center;font-size:12px;font-weight:700;margin:0 16px 10px}
+.fidelidade{background:rgba(250,204,21,.12);border:2px dashed #facc15;border-radius:16px;padding:12px;margin:0 16px 12px;text-align:center}
+.fidelidade .dots{display:flex;gap:5px;justify-content:center;margin:8px 0;flex-wrap:wrap}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid #facc15;display:flex;align-items:center;justify-content:center;font-size:11px;background:rgba(0,0,0,.3)}
+.dot.active{background:#facc15;color:#000}
 .container{max-width:500px;margin:0 auto;padding:0 16px}
-.card{background:rgba(255,255,255,.06);backdrop-filter:blur(15px);border:1px solid rgba(178,75,255,.25);border-radius:20px;padding:18px;margin-bottom:14px}
-.card.upsell{border:2px solid #facc15;background:linear-gradient(135deg,rgba(250,204,21,.15),rgba(178,75,255,.15))}
-.card h2{font-size:13px;letter-spacing:2px;color:#d8b4fe;margin-bottom:12px}
-.sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.size{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px;text-align:center;cursor:pointer;background:rgba(0,0,0,.3)}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(178,75,255,.25);border-radius:18px;padding:16px;margin-bottom:12px}
+.card.upsell{border-color:#facc15;background:rgba(250,204,21,.1)}
+.card h2{font-size:12px;letter-spacing:2px;color:#d8b4fe;margin-bottom:10px}
+.sizes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.size{border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px;text-align:center;cursor:pointer;background:rgba(0,0,0,.3)}
 .size.selected{border-color:#b24bff;background:rgba(178,75,255,.2)}
-.toppings{display:flex;flex-wrap:wrap;gap:8px}
-.top{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 14px;font-size:13px;cursor:pointer;color:#ddd}
-.top.active{background:#b24bff;border-color:#b24bff;color:#fff}
-.up-item{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.toppings{display:flex;flex-wrap:wrap;gap:6px}
+.top{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:6px 12px;font-size:12px;cursor:pointer;color:#ddd}
+.top.active{background:#b24bff;color:#fff}
+.up-item{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px 10px;margin-bottom:6px;cursor:pointer;font-size:13px}
 .up-item.selected{border-color:#facc15;background:rgba(250,204,21,.15)}
-input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px;color:#fff;margin-top:8px;outline:none}
-.foot{position:fixed;bottom:0;left:0;right:0;background:rgba(10,4,20,.95);border-top:1px solid rgba(178,75,255,.3);padding:12px 16px;display:flex;gap:10px;z-index:10}
-.btn{flex:1;border:none;border-radius:12px;padding:14px;font-weight:700;cursor:pointer}
+input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:11px;color:#fff;margin-top:6px;outline:none;font-size:14px}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#0a0414;border-top:1px solid rgba(178,75,255,.4);padding:12px 16px;display:flex;gap:8px;z-index:99}
+.btn{flex:1;border:none;border-radius:12px;padding:14px;font-weight:800;cursor:pointer;font-size:14px}
 .btn-pix{background:#fff;color:#000}
 .btn-zap{background:linear-gradient(135deg,#7c1cf6,#b24bff);color:#fff}
-.total{text-align:center;margin:10px 0;color:#d8b4fe;font-weight:600}
-.pix-box{background:rgba(178,75,255,.1);border:1px dashed #b24bff;border-radius:12px;padding:12px;text-align:center;margin-top:12px}
-.toast{position:fixed;bottom:85px;left:10px;background:#000;border:1px solid #b24bff;border-radius:12px;padding:10px 14px;font-size:12px;transform:translateX(-120%);transition:.5s;z-index:20}
-.toast.show{transform:translateX(0)}
+.total{text-align:center;margin:12px 0;color:#f0abfc;font-weight:700;font-size:15px}
+.pix-box{background:rgba(178,75,255,.12);border:1px dashed #b24bff;border-radius:12px;padding:10px;text-align:center}
+.toast{position:fixed;bottom:90px;left:10px;right:10px;background:#111;border:1px solid #b24bff;border-radius:12px;padding:10px;font-size:12px;transform:translateY(150px);transition:.4s;z-index:100;text-align:center}
+.toast.show{transform:translateY(0)}
 </style>
 </head>
 <body>
-<div class="header"><div class="logo">🍧</div><h1>THE BEATS AÇAÍ</h1><p>BOWLS • SMOOTHIES • GOOD</p></div>
+<div class="header"><div class="logo">🍧</div><h1>THE BEATS AÇAÍ</h1></div>
 <div class="social"><span>⭐ 4.9 (312)</span><span>🔥 127 hoje</span><span>🟢 Aberto</span></div>
-<div class="fretegratis">🎉 FRETE GRÁTIS acaba em <span id="timer">14:59</span> • <span id="viewers">23</span> vendo</div>
-
-<!-- FIDELIDADE CARD -->
-<div class="fidelidade" id="fidelCard">
-<div style="font-size:12px;font-weight:800;letter-spacing:1px">🎁 CARTÃO FIDELIDADE</div>
-<div class="dots" id="dots"></div>
-<div style="font-size:11px" id="fidelText">Você tem 0 pedidos • Falta 10 pra ganhar 1 GRÁTIS!</div>
-<div style="font-size:10px;color:#facc15;margin-top:4px">A cada pedido, 1 carimbo automático</div>
-</div>
+<div class="fretegratis">🎉 FRETE GRÁTIS termina em <span id="timer">14:59</span> • <span id="viewers">23</span> pessoas vendo</div>
+<div class="fidelidade" id="fidelCard"><div style="font-size:11px;font-weight:800">🎁 CARTÃO FIDELIDADE - JUNTE 10 GANHE 1</div><div class="dots" id="dots"></div><div style="font-size:11px" id="fidelText"></div></div>
 
 <div class="container">
-<div class="card"><h2>TAMANHO</h2>
-<div class="sizes">
+<div class="card"><h2>1️⃣ TAMANHO</h2><div class="sizes">
 <div class="size selected" onclick="setSize(this,'300ml',14)"><b>300ml</b><br><small>R$ 14,00</small></div>
 <div class="size" onclick="setSize(this,'500ml',20)"><b>500ml</b><br><small>R$ 20,00</small></div>
 <div class="size" onclick="setSize(this,'700ml',26)"><b>700ml</b><br><small>R$ 26,00</small></div>
 <div class="size" onclick="setSize(this,'1L',34)"><b>1 Litro</b><br><small>R$ 34,00</small></div>
 </div></div>
 
-<div class="card upsell"><h2>🔥 TURBINE? <span style="font-size:10px;background:#facc15;color:#000;padding:2px 6px;border-radius:6px">89% PEDEM</span></h2>
-<div class="up-item" onclick="toggleUp(this,'Nutella Extra',3.9)"><div><b>🍫 Nutella Extra
+<div class="card upsell"><h2>🔥 TURBINAR? (89% PEDEM)</h2>
+<div class="up-item" onclick="toggleUp(this,'Nutella Extra',3.9)"><span>🍫 Nutella Extra</span><b>+ R$ 3,90</b></div>
+<div class="up-item" onclick="toggleUp(this,'Ninho Extra',2.5)"><span>🥛 Ninho Extra</span><b>+ R$ 2,50</b></div>
+<div class="up-item" onclick="toggleUp(this,'Morango Extra',3)"><span>🍓 Morango Extra</span><b>+ R$ 3,00</b></div>
+</div>
+
+<div class="card"><h2>2️⃣ ADICIONAIS GRÁTIS (ESCOLHA 5)</h2>
+<div class="toppings">
+<span class="top" onclick="toggleTop(this)">Leite Condensado</span>
+<span class="top" onclick="toggleTop(this)">Paçoca</span>
+<span class="top" onclick="toggleTop(this)">Granola</span>
+<span class="top" onclick="toggleTop(this)">Banana</span>
+<span class="top" onclick="toggleTop(this)">Morango</span>
+<span class="top" onclick="toggleTop(this)">Nutella</span>
+<span class="top" onclick="toggleTop(this)">Leite Ninho</span>
+<span class="top" onclick="toggleTop(this)">Confete</span>
+<span class="top" onclick="toggleTop(this)">Ovomaltine</span>
+<span class="top" onclick="toggleTop(this)">Amendoim</span>
+</div>
+<p id="countTop" style="font-size:11px;color:#a78bfa;margin-top:8px">0/5 selecionados</p>
+</div>
+
+<div class="card"><h2>3️⃣ SEUS DADOS</h2>
+<input id="nome" placeholder="Seu nome completo">
+<input id="end" placeholder="Endereço + bairro + número">
+<input id="tel"
