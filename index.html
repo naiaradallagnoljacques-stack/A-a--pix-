@@ -26,9 +26,9 @@ body{background:#0a0414;color:#fff;padding-bottom:180px}
 .up-item.selected{border-color:#facc15;background:rgba(250,204,21,.2)}
 input{width:100%;background:#111;border:1px solid #444;border-radius:10px;padding:12px;color:#fff;margin-top:8px}
 .foot{position:fixed;bottom:0;left:0;right:0;background:#000;border-top:2px solid #b24bff;padding:10px;display:flex;gap:8px;z-index:999}
-.btn{flex:1;border:none;border-radius:10px;padding:14px;font-weight:800;cursor:pointer}
+.btn{flex:1;border:none;border-radius:10px;padding:14px;font-weight:800;cursor:pointer;font-size:14px}
 .btn-pix{background:#fff;color:#000}
-.btn-zap{background:#7c1cf6;color:#fff}
+.btn-zap{background:linear-gradient(90deg,#7c1cf6,#b24bff);color:#fff}
 .total{text-align:center;margin:10px;color:#d8b4fe;font-weight:700}
 .pix-box{border:1px dashed #b24bff;border-radius:10px;padding:10px;text-align:center}
 .toast{position:fixed;bottom:80px;left:10px;right:10px;background:#222;border:1px solid #b24bff;border-radius:10px;padding:10px;text-align:center;display:none;z-index:1000}
@@ -40,57 +40,16 @@ input{width:100%;background:#111;border:1px solid #444;border-radius:10px;paddin
 <div><span class="badge">⭐ 4.9 (312)</span><span class="badge">🔥 127 hoje</span><span class="badge">🟢 Aberto</span></div>
 </div>
 <div class="fretegratis">🎉 FRETE GRÁTIS termina em <span id="timer">15:00</span> • <span id="viewers">23</span> vendo agora</div>
-<div class="fidelidade"><b>🎁 FIDELIDADE</b><div id="dots"></div><div id="fidelText" style="font-size:11px;margin-top:4px"></div></div>
+<div class="fidelidade"><b>🎁 CARTÃO FIDELIDADE - JUNTE 10 GANHE 1</b><div id="dots" style="margin-top:6px"></div><div id="fidelText" style="font-size:11px;margin-top:4px"></div></div>
 
 <div class="container">
-<div class="card"><h2>TAMANHO</h2><div class="sizes">
+<div class="card"><h2>1️⃣ TAMANHO</h2><div class="sizes">
 <div class="size selected" onclick="setSize(this,'300ml',14)"><b>300ml</b><br>R$ 14</div>
 <div class="size" onclick="setSize(this,'500ml',20)"><b>500ml</b><br>R$ 20</div>
 <div class="size" onclick="setSize(this,'700ml',26)"><b>700ml</b><br>R$ 26</div>
 <div class="size" onclick="setSize(this,'1L',34)"><b>1L</b><br>R$ 34</div>
 </div></div>
 
-<div class="card"><h2>🔥 TURBINAR (+89% pedem)</h2>
+<div class="card"><h2>🔥 TURBINAR (89% PEDEM)</h2>
 <div class="up-item" onclick="toggleUp(this,'Nutella Extra',3.9)"><span>🍫 Nutella Extra</span><b>+ R$ 3,90</b></div>
-<div class="up-item" onclick="toggleUp(this,'Ninho Extra',2.5)"><span>🥛 Ninho Extra</span><b>+ R$ 2,50</b></div>
-</div>
-
-<div class="card"><h2>ADICIONAIS GRÁTIS (5)</h2><div class="toppings">
-<span class="top" onclick="toggleTop(this)">Leite Condensado</span>
-<span class="top" onclick="toggleTop(this)">Paçoca</span>
-<span class="top" onclick="toggleTop(this)">Granola</span>
-<span class="top" onclick="toggleTop(this)">Banana</span>
-<span class="top" onclick="toggleTop(this)">Morango</span>
-<span class="top" onclick="toggleTop(this)">Nutella</span>
-<span class="top" onclick="toggleTop(this)">Leite Ninho</span>
-<span class="top" onclick="toggleTop(this)">Confete</span>
-</div><div id="countTop" style="font-size:11px;margin-top:6px;color:#aaa">0/5</div></div>
-
-<div class="card"><h2>SEUS DADOS - OBRIGATÓRIO</h2>
-<input id="nome" placeholder="Seu nome completo *">
-<input id="end" placeholder="Endereço + bairro + número *">
-<input id="tel" placeholder="WhatsApp com DDD *">
-</div>
-
-<div class="total" id="total">Total: R$ 14,00</div>
-<div class="card"><div class="pix-box">PIX CPF<br><b style="font-size:18px">99292670000</b><br>Copie e pague</div></div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<div class="foot">
-<button class="btn btn-pix" onclick="copiarPix()">COPIAR PIX</button>
-<button class="btn btn-zap" onclick="enviarZap()">JÁ PAGUEI - ENVIAR ZAP</button>
-</div>
-
-<script>
-let tamanho='300ml',preco=14,toppings=[],upsell=[],pedidos=parseInt(localStorage.getItem('beats_pedidos')||'0');
-function renderFidel(){let h='';for(let i=0;i<10;i++){h+=`<span class="dot ${i<pedidos?'active':''}">${i<pedidos?'✓':i+1}</span>`}document.getElementById('dots').innerHTML=h;document.getElementById('fidelText').innerText=pedidos>=10?'GANHOU 1 GRÁTIS!':`${pedidos}/10 - Falta ${10-pedidos} pro grátis`}renderFidel();
-function setSize(el,t,p){document.querySelectorAll('.size').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');tamanho=t;preco=p;updateTotal()}
-function toggleTop(el){let v=el.innerText;if(el.classList.contains('active')){el.classList.remove('active');toppings=toppings.filter(x=>x!=v)}else{if(toppings.length>=5){showToast('Máximo 5 grátis!');return}el.classList.add('active');toppings.push(v)}document.getElementById('countTop').innerText=toppings.length+'/5'}
-function toggleUp(el,nome,valor){if(el.classList.contains('selected')){el.classList.remove('selected');upsell=upsell.filter(x=>x.nome!=nome)}else{el.classList.add('selected');upsell.push({nome,valor});showToast(nome+' adicionado!')}updateTotal()}
-function updateTotal(){let up=upsell.reduce((s,x)=>s+x.valor,0);let total=preco+up;document.getElementById('total').innerText=up>0?`Total: R$ ${preco} + R$ ${up.toFixed(2)} = R$ ${total.toFixed(2)}`:`Total: R$ ${total},00`}
-function copiarPix(){let v='99292670000';let a=document.createElement('input');a.value=v;document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);showToast('PIX COPIADO: '+v)}
-function enviarZap(){let n=document.getElementById('nome').value;let e=document.getElementById('end').value;if(!n||!e){showToast('Preencha NOME e ENDEREÇO!');return}pedidos++;localStorage.setItem('beats_pedidos',pedidos);renderFidel();let up=upsell.map(x=>x.nome).join(', ');let msg=`🍧 PEDIDO THE BEATS%0ANome: ${n}%0ATamanho: ${tamanho} R$${preco}%0AExtras: ${up||'nenhum'}%0AGrátis: ${toppings.join(', ')}%0AEnd: ${e}%0ATel: ${document.getElementById('tel').value}%0ATotal R$ ${(preco+upsell.reduce((s,x)=>s+x.valor,0)).toFixed(2)}%0APIX PAGO`;window.location.href='https://wa.me/55991600621?text='+msg}
-function showToast(t){let el=document.getElementById('toast');el.innerText=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3000)}
-let time=900;setInterval(()=>{time--;if(time
+<div class="up-item" onclick="toggleUp(this,'Ninho Extra',2.5)"><span>
