@@ -11,19 +11,22 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .logo{width:90px;height:90px;margin:0 auto 15px;border:2px solid #b24bff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 25px #7c1cf6;font-size:40px;background:rgba(124,28,246,.15)}
 .header h1{font-size:38px;letter-spacing:8px;font-weight:200;text-shadow:0 0 15px #b24bff;color:#e9c6ff}
 .header p{color:#a78bfa;letter-spacing:3px;font-size:12px;margin-top:8px}
-/* NOVO */
 .social{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0 8px}
 .social span{background:rgba(255,255,255,.08);border:1px solid rgba(178,75,255,.3);border-radius:20px;padding:5px 10px;font-size:11px}
 .fretegratis{background:linear-gradient(90deg,#7c1cf6,#ff00e5);border-radius:12px;padding:8px 12px;text-align:center;font-size:12px;font-weight:700;margin:0 16px 12px}
 .container{max-width:500px;margin:0 auto;padding:0 16px}
 .card{background:rgba(255,255,255,.06);backdrop-filter:blur(15px);border:1px solid rgba(178,75,255,.25);border-radius:20px;padding:18px;margin-bottom:14px}
 .card h2{font-size:13px;letter-spacing:2px;color:#d8b4fe;margin-bottom:12px}
+.card.upsell{border:2px solid #facc15;background:linear-gradient(135deg,rgba(250,204,21,.15),rgba(178,75,255,.15));animation:pulseGold 2s infinite}
+@keyframes pulseGold{0%,100%{box-shadow:0 0 0 0 rgba(250,204,21,.3)}50%{box-shadow:0 0 0 8px rgba(250,204,21,0)}}
 .sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .size{border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px;text-align:center;cursor:pointer;background:rgba(0,0,0,.3)}
 .size.selected{border-color:#b24bff;background:rgba(178,75,255,.2);box-shadow:0 0 15px rgba(178,75,255,.4)}
 .toppings{display:flex;flex-wrap:wrap;gap:8px}
 .top{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:7px 14px;font-size:13px;cursor:pointer;color:#ddd}
 .top.active{background:#b24bff;border-color:#b24bff;color:#fff}
+.up-item{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.up-item.selected{border-color:#facc15;background:rgba(250,204,21,.15)}
 input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px;color:#fff;margin-top:8px;outline:none}
 .foot{position:fixed;bottom:0;left:0;right:0;background:rgba(10,4,20,.95);border-top:1px solid rgba(178,75,255,.3);padding:12px 16px;display:flex;gap:10px;z-index:10}
 .btn{flex:1;border:none;border-radius:12px;padding:14px;font-weight:700;cursor:pointer}
@@ -37,9 +40,8 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 </head>
 <body>
 <div class="header"><div class="logo">🍧</div><h1>THE BEATS AÇAÍ</h1><p>BOWLS • SMOOTHIES • GOOD</p></div>
-
-<div class="social"><span>⭐ 4.9 (312 avaliações)</span><span>🔥 127 pedidos hoje</span><span>🟢 Aberto agora</span></div>
-<div class="fretegratis">🎉 FRETE GRÁTIS acaba em <span id="timer">14:59</span> • <span id="viewers">23</span> pessoas vendo agora</div>
+<div class="social"><span>⭐ 4.9 (312)</span><span>🔥 127 hoje</span><span>🟢 Aberto</span></div>
+<div class="fretegratis">🎉 FRETE GRÁTIS acaba em <span id="timer">14:59</span> • <span id="viewers">23</span> vendo agora</div>
 
 <div class="container">
 <div class="card"><h2>TAMANHO</h2>
@@ -50,12 +52,15 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 <div class="size" onclick="setSize(this,'1L',34)"><b>1 Litro</b><br><small>R$ 34,00</small></div>
 </div></div>
 
-<div class="card"><h2>⭐ O QUE TÃO FALANDO</h2>
-<div style="font-size:12px;line-height:1.6;color:#ddd">
-⭐⭐⭐⭐⭐ <b>Camila S.</b> - "Melhor açaí de Ijuí!"<br>
-⭐⭐⭐⭐⭐ <b>João V.</b> - "Chegou geladinho e recheado!"<br>
-⭐⭐⭐⭐⭐ <b>Ana L.</b> - "Entrega em 20min, amei!"
-</div></div>
+<!-- UPSELL NOVO -->
+<div class="card upsell"><h2>🔥 TURBINE SEU AÇAÍ? <span style="font-size:10px;background:#facc15;color:#000;padding:2px 6px;border-radius:6px">89% PEDEM</span></h2>
+<div id="upsellList">
+<div class="up-item" onclick="toggleUp(this,'Nutella Extra',3.9)"><div><b>🍫 Nutella Extra</b><br><small style="color:#aaa">+ creme de avelã original</small></div><b>+ R$ 3,90</b></div>
+<div class="up-item" onclick="toggleUp(this,'Leite Ninho Extra',2.5)"><div><b>🥛 Leite Ninho Extra</b><br><small style="color:#aaa">Mais cremosidade</small></div><b>+ R$ 2,50</b></div>
+<div class="up-item" onclick="toggleUp(this,'Morango Extra',3)"><div><b>🍓 Morango Extra</b><br><small style="color:#aaa">Fresquinho</small></div><b>+ R$ 3,00</b></div>
+</div>
+<small style="color:#a78bfa;font-size:11px">Toque para adicionar • Clique de novo para remover</small>
+</div>
 
 <div class="card"><h2>ADICIONAIS GRÁTIS (5)</h2>
 <div class="toppings">
@@ -78,22 +83,22 @@ input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15
 <div class="card"><div class="pix-box">PIX CPF<br><b>99292670000</b></div></div>
 </div>
 
-<div class="toast" id="toast">🍧 <b id="tn">Juliana</b> <span id="ta">acabou de pedir 500ml</span></div>
-
+<div class="toast" id="toast">🍧 <b id="tn">Juliana</b> <span id="ta">adicionou Nutella Extra!</span></div>
 <div class="foot">
 <button class="btn btn-pix" onclick="copiarPix()">COPIAR PIX</button>
 <button class="btn btn-zap" onclick="enviarZap()">JÁ PAGUEI • ENVIAR</button>
 </div>
 <script>
-let tamanho='300ml',preco=14,toppings=[];
-function setSize(el,t,p){document.querySelectorAll('.size').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');tamanho=t;preco=p;document.getElementById('total').innerText='Total: R$ '+p+',00'}
-function toggleTop(el){let v=el.innerText;if(el.classList.contains('active')){el.classList.remove('active');toppings=toppings.filter(x=>x!=v)}else{if(toppings.length>=5){alert('Máximo 5 adicionais!');return}el.classList.add('active');toppings.push(v)}}
-function copiarPix(){let chave='55999292670000';let aux=document.createElement('input');aux.value=chave;document.body.appendChild(aux);aux.select();document.execCommand('copy');document.body.removeChild(aux);alert('PIX 99292670000 copiado! ✅')}
-function enviarZap(){let n=document.getElementById('nome').value;let e=document.getElementById('end').value;if(!n){alert('Coloque seu nome!');return}if(!e){alert('Coloque seu endereço!');return}let t=document.getElementById('tel').value;let msg=`🍧 *PEDIDO THE BEATS AÇAÍ*%0A%0ANome: ${n}%0ATamanho: ${tamanho} - R$${preco}%0AAdicionais: ${toppings.join(', ')||'Puro'}%0AEnd: ${e}%0ATel: ${t}%0A%0APIX 99292670000 PAGO ✅`;window.location.href='https://wa.me/55991600621?text='+msg}
-// prova social dinamica
+let tamanho='300ml',preco=14,toppings=[],upsell=[],upsellTotal=0;
+function setSize(el,t,p){document.querySelectorAll('.size').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');tamanho=t;preco=p;updateTotal()}
+function toggleTop(el){let v=el.innerText;if(el.classList.contains('active')){el.classList.remove('active');toppings=toppings.filter(x=>x!=v)}else{if(toppings.length>=5){alert('Máximo 5!');return}el.classList.add('active');toppings.push(v)}}
+function toggleUp(el,nome,valor){let idx=upsell.findIndex(x=>x.nome==nome);if(el.classList.contains('selected')){el.classList.remove('selected');upsell=upsell.filter(x=>x.nome!=nome)}else{el.classList.add('selected');upsell.push({nome,valor});showToast(nome+' adicionado! 🤑')}updateTotal()}
+function updateTotal(){let total=preco+upsellTotal;let up=upsell.reduce((s,x)=>s+x.valor,0);upsellTotal=up;total=preco+up;document.getElementById('total').innerText=up>0?`Total: R$ ${preco},00 + R$ ${up.toFixed(2).replace('.',',')} extras = R$ ${total.toFixed(2).replace('.',',')}`:`Total: R$ ${total},00`}
+function copiarPix(){navigator.clipboard.writeText('55999292670000');alert('PIX copiado! ✅')}
+function enviarZap(){let n=document.getElementById('nome').value;let e=document.getElementById('end').value;if(!n||!e){alert('Preencha nome e endereço!');return}let t=document.getElementById('tel').value;let upText=upsell.length?`%0AExtras pagos: ${upsell.map(x=>x.nome+' R$'+x.valor).join(', ')}`:'',msg=`🍧 *PEDIDO THE BEATS AÇAÍ*%0ANome: ${n}%0ATamanho: ${tamanho} - R$${preco}${upText}%0AGrátis: ${toppings.join(', ')||'Puro'}%0AEnd: ${e}%0ATel: ${t}%0ATotal: R$ ${(preco+upsellTotal).toFixed(2)}%0APIX 99292670000 PAGO ✅`;window.location.href='https://wa.me/55991600621?text='+msg}
+function showToast(txt){document.getElementById('ta').innerText=txt;let toast=document.getElementById('toast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3000)}
 let viewers=23;setInterval(()=>{viewers=18+Math.floor(Math.random()*12);document.getElementById('viewers').innerText=viewers},3000);
 let time=899;setInterval(()=>{time--;if(time<=0)time=899;let m=Math.floor(time/60);let s=time%60;document.getElementById('timer').innerText=m+':'+String(s).padStart(2,'0')},1000);
-let nomes=["Juliana de Ijuí","Marcos do Centro","Ana S.","Pedro C.","Camila G."];let acoes=["acabou de pedir 500ml","pediu 1L + Nutella","avaliou com 5 estrelas"];let i=0;setInterval(()=>{document.getElementById('tn').innerText=nomes[i%nomes.length];document.getElementById('ta').innerText=acoes[i%acoes.length];let toast=document.getElementById('toast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3500);i++;},7000);
 </script>
 </body>
-                                                                                            </html>
+</html>
