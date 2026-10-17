@@ -9,8 +9,45 @@
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: Arial, sans-serif; background:#f5f5f5; }
-#header { background:#0086ff; padding:12px; text-align:center; position:sticky; top:0; z-index:10; }
-#header img { width:140px; background:white; padding:6px 15px; border-radius:8px; }
+
+/* === CABEÇALHO ROTATIVO === */
+#header {
+  background: #0086ff;
+  padding: 8px 12px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  max-height: 95px;
+  max-width: 90%;
+  object-fit: contain;
+}
+
+.slider-item.ativo {
+  opacity: 1;
+}
+/* === FIM DO CABEÇALHO === */
+
 #product { display:block; max-width:1368px; margin:auto; background:white; }
 .galeria {
   display: flex;
@@ -43,19 +80,35 @@ button:hover { opacity: 0.9; transform: scale(1.01); }
 </head>
 <body>
 
+<!-- === CABEÇALHO ROTATIVO === -->
 <div id="header">
-<a href="https://www.magazineluiza.com.br" target="_blank" aria-label="Ir para página inicial Magazine Luiza">
-<img src="https://logospng.org/download/magazine-luiza/logo-magazine-luiza-1024.png" alt="Magazine Luiza">
-</a>
+  <div class="slider-container">
+    <img class="slider-item ativo" src="https://startupi.com.br/wp-content/uploads/2022/07/Magalu-linx-marketplace-e1616024483646.png" alt="Magalu Linx">
+    <img class="slider-item" src="https://manualdousuario.net/wp-content/uploads/2021/06/parceiro-magalu.png" alt="Parceiro Magalu">
+  </div>
 </div>
+
+<script>
+const itens = document.querySelectorAll('.slider-item');
+let indice = 0;
+
+function trocarSlide() {
+  itens[indice].classList.remove('ativo');
+  indice = (indice + 1) % itens.length;
+  itens[indice].classList.add('ativo');
+}
+
+setInterval(trocarSlide, 3000);
+</script>
+<!-- === FIM DO CABEÇALHO === -->
 
 <div id="product">
 
 <div class="galeria">
-<img src="https://a-static.mlcdn.com.br/470x352/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/6435accf895a42a0b4d80d97663971a4.jpg" alt="iPhone 15 Azul - Frente" aria-label="Foto frontal do iPhone 15 azul">
-<img src="https://a-static.mlcdn.com.br/800x560/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/6435accf895a42a0b4d80d97663971a4.jpg" alt="iPhone 15 Azul - Verso" aria-label="Foto traseira do iPhone 15 azul">
-<img src="https://http2.mlstatic.com/D_NQ_NP_2X_888998-MLA79384783031_092024-F.webp" alt="iPhone 15 - Detalhe" aria-label="Detalhe do iPhone 15">
-<img src="https://http2.mlstatic.com/D_NQ_NP_2X_652542-MLA79912347866_102024-F.webp" alt="iPhone 15 - Tela" aria-label="Tela do iPhone 15">
+<img src="https://a-static.mlcdn.com.br/420x420/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/61a55a0bebdf6d71d55ea6f15efdf07c.jpg" alt="iPhone 15 Azul - Foto 1" aria-label="Foto 1 do iPhone 15 azul">
+<img src="https://a-static.mlcdn.com.br/420x420/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/7d460f4644c7ef6b3893cc0fd7aac79e.jpg" alt="iPhone 15 Azul - Foto 2" aria-label="Foto 2 do iPhone 15 azul">
+<img src="https://a-static.mlcdn.com.br/420x420/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/d4d92d9dcc11aecb56dc337a309e1cfe.jpg" alt="iPhone 15 Azul - Foto 3" aria-label="Foto 3 do iPhone 15 azul">
+<img src="https://a-static.mlcdn.com.br/420x420/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/2e9d6105f41271eb4bfbb14d95cc0c00.jpg" alt="iPhone 15 Azul - Foto 4" aria-label="Foto 4 do iPhone 15 azul">
 </div>
 <p style="text-align:center; color:#888; font-size:12px;">👉 Arraste pro lado para ver mais fotos</p>
 
@@ -95,4 +148,5 @@ Magazine Luiza - Entrega rápida e segura
 </div>
 
 </body>
-</html>
+  </html>
+  
