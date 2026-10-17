@@ -1,34 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPhone 16 - Loja</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:Arial; background:#0086ff; }
+.topo { background:#0086ff; padding:15px; text-align:center; }
+.topo img { width:160px; background:white; padding:10px 20px; border-radius:12px; }
+.container { background:#f0f3f4; padding:20px; }
+.card { background:white; max-width:850px; margin:auto; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.3); }
+.carrossel { display:flex; overflow-x:auto; gap:15px; scroll-snap-type:x mandatory; padding:20px; }
+.carrossel img { min-width:75%; max-width:75%; height:400px; object-fit:contain; border-radius:15px; border:2px solid #eee; scroll-snap-align:center; background:#fff; }
+.info { padding:30px; text-align:center; }
+.preco { font-size:45px; color:#00a650; font-weight:bold; margin:10px 0; }
+.botao { background:#00a650; color:white; width:100%; padding:22px; border:none; border-radius:15px; font-size:23px; font-weight:bold; cursor:pointer; margin-top:20px; }
+.lista { text-align:left; background:#f9f9f9; padding:20px; border-radius:12px; margin:20px 0; line-height:1.8; }
+.rodape { text-align:center; padding:25px; color:white; font-size:15px; }
+</style>
 </head>
-<body style="background:#0086ff; margin:0; padding:15px; font-family:Arial;">
+<body>
 
-<div style="background:white; max-width:450px; margin:auto; border-radius:20px; padding:20px; text-align:center;">
-
-<img src="https://logospng.org/download/magazine-luiza/logo-magazine-luiza-1024.png" style="width:130px; margin-bottom:15px;">
-
-<!-- CARROSSEL ROLANDO PRO LADO -->
-<div style="display:flex; overflow-x:auto; gap:10px; scroll-snap-type:x mandatory; padding-bottom:10px; -webkit-overflow-scrolling:touch;">
-  <img src="https://a-static.mlcdn.com.br/470x352/apple-iphone-16-128gb-preto-61-48mp-ios-5g/magazineluiza/238803400/07f95db2095de876b29c54250a4589a2.jpg" style="min-width:85%; border-radius:15px; scroll-snap-align:center; border:1px solid #eee;">
-  <img src="https://m.media-amazon.com/images/I/61PBLEFPoKL._AC_SL1500_.jpg" style="min-width:85%; border-radius:15px; scroll-snap-align:center; border:1px solid #eee;">
-  <img src="https://m.media-amazon.com/images/I/71o2d3c3V-L._AC_SL1500_.jpg" style="min-width:85%; border-radius:15px; scroll-snap-align:center; border:1px solid #eee;">
-  <img src="https://m.media-amazon.com/images/I/51Z6z6t5c4L._AC_SL1500_.jpg" style="min-width:85%; border-radius:15px; scroll-snap-align:center; border:1px solid #eee;">
-  <img src="https://a-static.mlcdn.com.br/470x352/apple-iphone-16-128gb-preto-61-48mp-ios-5g/magazineluiza/238803400/07f95db2095de876b29c54250a4589a2.jpg" style="min-width:85%; border-radius:15px; scroll-snap-align:center; border:1px solid #eee;">
-</div>
-<p style="font-size:12px; color:#888; margin-top:5px;">👉 Arraste pro lado para ver mais fotos</p>
-
-<h2 style="margin:15px 0 5px;">iPhone 16 128GB Preto</h2>
-<p style="color:#666; font-size:14px;">Novo lacrado - Garantia Apple</p>
-<h1 style="color:#00a650; font-size:32px;">R$ 4.999,00</h1>
-<p style="font-size:13px; color:#666;">12x de R$ 416,58 sem juros</p>
-
-<a href="https://wa.me/5549912345678?text=Quero%20o%20iPhone%2016" target="_blank" style="text-decoration:none;">
-<button style="background:#00a650; color:white; width:100%; padding:18px; border:none; border-radius:12px; font-size:18px; font-weight:bold; margin-top:15px;">💬 COMPRAR NO WHATSAPP</button>
-</a>
-
+<div class="topo">
+<img src="https://logospng.org/download/magazine-luiza/logo-magazine-luiza-1024.png">
 </div>
 
-</body>
-</html>
+<div class="container">
+<div class="card">
+
+<!-- CARROSSEL GRANDE ROLANDO PRO LADO -->
+<div class="carrossel">
+<img src="https://a-static.mlcdn.com.br/800x560/apple-iphone-16-128gb-preto-61-48mp-ios-5g/magazineluiza/238803400/07f95db2095de876b29c54250a4589a2.jpg">
+<img src="https://http2.mlstatic.com/D_NQ_NP_2X_652542-MLA79912347866_102024-F.webp">
+<img src="https://http2.mlstatic.com/D_NQ_NP_2X_888998-MLA79384783031_092024-F.webp">
+<img src="https://http2.mlstatic.com/D_NQ_NP_2X_932821-MLA79912347867_102024-F.webp">
+<img src="https://http2.mlstatic.com/D_NQ_NP_2X_733208-MLA79912347865_102024-F.webp">
+</div>
+<p style="text-align:center; color:#888; font-size:13px; padding-bottom:10px;">👉 Deslize pro lado para ver mais fotos</p>
+
+<div class="info">
+<h1 style="font-size:30px;">Apple iPhone 16 128GB Preto 6,1" 48MP 5G</h1>
+<p style="color:#666; margin-top:5px;">Lacrado - Nota Fiscal - Garantia 12 Meses</p>
+
+<div class="preco">R$ 4.999,00</div
