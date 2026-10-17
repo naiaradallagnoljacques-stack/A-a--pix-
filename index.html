@@ -12,32 +12,52 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; }
 #header { background:#0086ff; padding:12px; text-align:center; position:sticky; top:0; z-index:10; }
 #header img { width:140px; background:white; padding:6px 15px; border-radius:8px; }
 #product { display:block; max-width:1368px; margin:auto; background:white; }
-.galeria { display:flex; overflow-x:auto; gap:10px; padding:20px; scroll-snap-type:x mandatory; }
-.galeria img { min-width:85%; border-radius:12px; scroll-snap-align:center; border:1px solid #eee; background:white; object-fit:contain; height:380px; }
+.galeria {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.galeria::-webkit-scrollbar { display: none; }
+.galeria img {
+  min-width: 85%;
+  max-width: 320px;
+  border-radius: 12px;
+  scroll-snap-align: center;
+  border: 1px solid #eee;
+  background: white;
+  object-fit: contain;
+  height: 320px;
+}
 .conteudo { padding:20px; }
 .preco { color:#0086ff; font-size:28px; font-weight:bold; }
 .preco-antigo { color:#999; text-decoration:line-through; font-size:14px; }
-.botao-magalu { background:#0086ff; color:white; width:100%; padding:18px; border:none; border-radius:8px; font-size:18px; font-weight:bold; margin-top:15px; cursor:pointer; }
-.botao-whats { background:#00a650; color:white; width:100%; padding:18px; border:none; border-radius:8px; font-size:18px; font-weight:bold; margin-top:10px; cursor:pointer; }
+button { border:none; border-radius:8px; font-size:18px; font-weight:bold; margin-top:15px; cursor:pointer; transition: all 0.2s ease; }
+button:hover { opacity: 0.9; transform: scale(1.01); }
+.botao-magalu { background:#0086ff; color:white; width:100%; padding:18px; }
+.botao-whats { background:#00a650; color:white; width:100%; padding:18px; margin-top:10px; }
 .lista { background:#f7f7f7; padding:15px; border-radius:10px; margin-top:15px; font-size:14px; line-height:1.7; }
 </style>
 </head>
 <body>
 
 <div id="header">
+<a href="https://www.magazineluiza.com.br" target="_blank" aria-label="Ir para página inicial Magazine Luiza">
 <img src="https://logospng.org/download/magazine-luiza/logo-magazine-luiza-1024.png" alt="Magazine Luiza">
+</a>
 </div>
 
 <div id="product">
 
-<!-- FOTOS -->
 <div class="galeria">
-<img src="https://a-static.mlcdn.com.br/470x352/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/6435accf895a42a0b4d80d97663971a4.jpg" alt="iPhone 15 Azul">
-<img src="https://a-static.mlcdn.com.br/800x560/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/6435accf895a42a0b4d80d97663971a4.jpg" alt="iPhone 15 Azul 2">
-<img src="https://http2.mlstatic.com/D_NQ_NP_2X_888998-MLA79384783031_092024-F.webp" alt="iPhone 15">
-<img src="https://http2.mlstatic.com/D_NQ_NP_2X_652542-MLA79912347866_102024-F.webp" alt="iPhone 15">
+<img src="https://a-static.mlcdn.com.br/470x352/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/6435accf895a42a0b4d80d97663971a4.jpg" alt="iPhone 15 Azul - Frente" aria-label="Foto frontal do iPhone 15 azul">
+<img src="https://a-static.mlcdn.com.br/800x560/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/6435accf895a42a0b4d80d97663971a4.jpg" alt="iPhone 15 Azul - Verso" aria-label="Foto traseira do iPhone 15 azul">
+<img src="https://http2.mlstatic.com/D_NQ_NP_2X_888998-MLA79384783031_092024-F.webp" alt="iPhone 15 - Detalhe" aria-label="Detalhe do iPhone 15">
+<img src="https://http2.mlstatic.com/D_NQ_NP_2X_652542-MLA79912347866_102024-F.webp" alt="iPhone 15 - Tela" aria-label="Tela do iPhone 15">
 </div>
-<p style="text-align:center; color:#888; font-size:12px;">👉 Arraste pro lado</p>
+<p style="text-align:center; color:#888; font-size:12px;">👉 Arraste pro lado para ver mais fotos</p>
 
 <div class="conteudo">
 <h1 style="font-size:20px; line-height:1.3;">Apple iPhone 15 128GB Azul 6,1" 48MP iOS 5G</h1>
@@ -47,9 +67,11 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; }
 <p class="preco">R$ 4.299,00 no Pix</p>
 <p style="font-size:14px;">ou 12x de R$ 399,90 sem juros</p>
 
+<a href="https://www.magazineluiza.com.br/apple-iphone-15-128gb-azul/p/238034800/te/ip15/" target="_blank" style="text-decoration:none;" aria-label="Adicionar à sacola">
 <button class="botao-magalu">🛒 ADICIONAR À SACOLA</button>
+</a>
 
-<a href="https://wa.me/5549912345678?text=Quero%20o%20iPhone%2015%20Azul%20128GB" target="_blank" style="text-decoration:none;">
+<a href="https://wa.me/5549912345678?text=Quero%20o%20iPhone%2015%20Azul%20128GB" target="_blank" style="text-decoration:none;" aria-label="Comprar pelo WhatsApp">
 <button class="botao-whats">💬 COMPRAR NO WHATSAPP COM DESCONTO</button>
 </a>
 
