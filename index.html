@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apple iPhone 15 128GB Azul 6,1" 48MP iOS 5G - Magazine Luiza</title>
-<meta name="description" content="Apple iPhone 15 128GB Azul 6,1'' 48MP iOS 5G com as melhores condições você encontra no Magalu. Confira!">
+<title>Conjunto de Biquíni Ajustável - Moda Praia</title>
+<meta name="description" content="Conjunto De Biquíni Ajustável Para Mulheres, Sexy, Sólido, Triangular, Moda De Praia Verão 2023. Compre com desconto no Pix!">
 <link href="https://site-content.magazineluiza.com.br/static/img/default/favicon-cc4cf323.png" rel="shortcut icon" type="image/png">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -48,34 +48,123 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; }
 }
 /* === FIM DO CABEÇALHO === */
 
-#product { display:block; max-width:1368px; margin:auto; background:white; }
-.galeria {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+#product { display:block; max-width:520px; margin:auto; background:white; }
+
+/* GALERIA PRINCIPAL */
+.galeria-principal {
+  position: relative;
+  overflow: hidden;
 }
-.galeria::-webkit-scrollbar { display: none; }
-.galeria img {
-  min-width: 85%;
-  max-width: 320px;
-  border-radius: 12px;
-  scroll-snap-align: center;
-  border: 1px solid #eee;
-  background: white;
+.foto-principal {
+  width: 100%;
+  height: 400px;
   object-fit: contain;
-  height: 320px;
+  display: block;
+  transition: opacity 0.3s ease;
 }
+.navegacao {
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding:0 10px;
+  transform: translateY(-50%);
+}
+.nav-btn {
+  background: rgba(255,255,255,0.8);
+  border:none;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#333;
+}
+
+/* SELEÇÃO DE CORES */
+.secao-cores {
+  padding:15px 20px;
+  border-bottom:1px solid #eee;
+}
+.secao-cores h4 { font-size:14px; color:#555; margin-bottom:10px; }
+.lista-cores {
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:5px;
+}
+.opcao-cor {
+  text-align:center;
+  cursor:pointer;
+  transition: transform 0.2s;
+}
+.opcao-cor:hover { transform:scale(1.05); }
+.opcao-cor.selecionado .cor-img {
+  border:2px solid #0086ff;
+}
+.cor-img {
+  width:60px;
+  height:60px;
+  border-radius:8px;
+  object-fit:cover;
+  border:2px solid #ddd;
+  margin-bottom:4px;
+}
+.cor-codigo {
+  font-size:11px;
+  color:#666;
+}
+
+/* SELEÇÃO DE TAMANHO */
+.secao-tamanho {
+  padding:15px 20px;
+  border-bottom:1px solid #eee;
+}
+.secao-tamanho h4 { font-size:14px; color:#555; margin-bottom:10px; }
+.lista-tamanhos {
+  display:flex;
+  gap:10px;
+}
+.opcao-tamanho {
+  flex:1;
+  padding:12px;
+  border:2px solid #ddd;
+  border-radius:8px;
+  text-align:center;
+  font-weight:bold;
+  cursor:pointer;
+  transition: all 0.2s;
+  background:white;
+}
+.opcao-tamanho:hover { border-color:#0086ff; }
+.opcao-tamanho.selecionado {
+  border-color:#0086ff;
+  background:#f0f7ff;
+  color:#0086ff;
+}
+
 .conteudo { padding:20px; }
-.preco { color:#0086ff; font-size:28px; font-weight:bold; }
+h1 { font-size:19px; line-height:1.4; color:#222; margin-bottom:8px; }
+.codigo-produto { font-size:13px; color:#888; margin-bottom:15px; }
 .preco-antigo { color:#999; text-decoration:line-through; font-size:14px; }
-button { border:none; border-radius:8px; font-size:18px; font-weight:bold; margin-top:15px; cursor:pointer; transition: all 0.2s ease; }
+.preco { color:#0086ff; font-size:26px; font-weight:bold; margin:5px 0; }
+.preco-parcelado { font-size:14px; color:#444; margin-bottom:20px; }
+
+button { border:none; border-radius:8px; font-size:17px; font-weight:bold; margin-top:10px; cursor:pointer; transition: all 0.2s ease; width:100%; padding:16px; }
 button:hover { opacity: 0.9; transform: scale(1.01); }
-.botao-magalu { background:#0086ff; color:white; width:100%; padding:18px; }
-.botao-whats { background:#00a650; color:white; width:100%; padding:18px; margin-top:10px; }
-.lista { background:#f7f7f7; padding:15px; border-radius:10px; margin-top:15px; font-size:14px; line-height:1.7; }
+.botao-comprar { background:#0086ff; color:white; }
+.botao-whats { background:#00a650; color:white; margin-top:10px; }
+
+.descricao { margin-top:25px; }
+.descricao h3 { font-size:16px; color:#333; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid #0086ff; display:inline-block; }
+.descricao p { font-size:14px; line-height:1.8; color:#444; margin-bottom:15px; }
+.descricao strong { color:#222; }
+
+.rodape { background:#0086ff; color:white; text-align:center; padding:18px; margin-top:30px; font-size:13px; }
 </style>
 </head>
 <body>
@@ -91,61 +180,156 @@ button:hover { opacity: 0.9; transform: scale(1.01); }
 <script>
 const itens = document.querySelectorAll('.slider-item');
 let indice = 0;
-
 function trocarSlide() {
   itens[indice].classList.remove('ativo');
   indice = (indice + 1) % itens.length;
   itens[indice].classList.add('ativo');
 }
-
 setInterval(trocarSlide, 3000);
 </script>
 <!-- === FIM DO CABEÇALHO === -->
 
 <div id="product">
 
-<div class="galeria">
-<img src="https://a-static.mlcdn.com.br/420x420/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/61a55a0bebdf6d71d55ea6f15efdf07c.jpg" alt="iPhone 15 Azul - Foto 1" aria-label="Foto 1 do iPhone 15 azul">
-<img src="https://a-static.mlcdn.com.br/420x420/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/7d460f4644c7ef6b3893cc0fd7aac79e.jpg" alt="iPhone 15 Azul - Foto 2" aria-label="Foto 2 do iPhone 15 azul">
-<img src="https://a-static.mlcdn.com.br/420x420/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/d4d92d9dcc11aecb56dc337a309e1cfe.jpg" alt="iPhone 15 Azul - Foto 3" aria-label="Foto 3 do iPhone 15 azul">
-<img src="https://a-static.mlcdn.com.br/420x420/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/2e9d6105f41271eb4bfbb14d95cc0c00.jpg" alt="iPhone 15 Azul - Foto 4" aria-label="Foto 4 do iPhone 15 azul">
+<!-- GALERIA PRINCIPAL -->
+<div class="galeria-principal">
+  <img id="fotoAtual" class="foto-principal" src="https://m.magazineluiza.com.br/a-static/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/0b5d5646f3af9dca4d49b16cae2a2d30.jpeg" alt="Conjunto de Biquíni">
+  <div class="navegacao">
+    <button class="nav-btn" onclick="trocarFoto(-1)">◀</button>
+    <button class="nav-btn" onclick="trocarFoto(1)">▶</button>
+  </div>
 </div>
-<p style="text-align:center; color:#888; font-size:12px;">👉 Arraste pro lado para ver mais fotos</p>
+
+<!-- ESCOLHA DE COR -->
+<div class="secao-cores">
+  <h4>🎨 Escolha a Cor:</h4>
+  <div class="lista-cores">
+    <div class="opcao-cor selecionado" onclick="escolherCor(0, this)">
+      <img class="cor-img" src="https://m.magazineluiza.com.br/a-static/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/0b5d5646f3af9dca4d49b16cae2a2d30.jpeg" alt="Cor 8456">
+      <div class="cor-codigo">Cor: 8456</div>
+    </div>
+    <div class="opcao-cor" onclick="escolherCor(1, this)">
+      <img class="cor-img" src="https://a-static.mlcdn.com.br/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/666eb0df88bb201ecf957f5201db5e6e.jpeg" alt="Cor 8457">
+      <div class="cor-codigo">Cor: 8457</div>
+    </div>
+    <div class="opcao-cor" onclick="escolherCor(2, this)">
+      <img class="cor-img" src="https://a-static.mlcdn.com.br/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/4737936d168b964505d7df0a0097ffd7.jpeg" alt="Cor 8458">
+      <div class="cor-codigo">Cor: 8458</div>
+    </div>
+    <div class="opcao-cor" onclick="escolherCor(3, this)">
+      <img class="cor-img" src="https://a-static.mlcdn.com.br/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/1e5d7863be62e5bfc7af3649e630dea2.jpeg" alt="Cor 8459">
+      <div class="cor-codigo">Cor: 8459</div>
+    </div>
+  </div>
+</div>
+
+<!-- ESCOLHA DE TAMANHO -->
+<div class="secao-tamanho">
+  <h4>👗 Escolha o Tamanho:</h4>
+  <div class="lista-tamanhos">
+    <div class="opcao-tamanho" onclick="escolherTamanho(this, 'P')">P</div>
+    <div class="opcao-tamanho" onclick="escolherTamanho(this, 'M')">M</div>
+    <div class="opcao-tamanho" onclick="escolherTamanho(this, 'G')">G</div>
+    <div class="opcao-tamanho" onclick="escolherTamanho(this, 'GG')">GG</div>
+  </div>
+</div>
 
 <div class="conteudo">
-<h1 style="font-size:20px; line-height:1.3;">Apple iPhone 15 128GB Azul 6,1" 48MP iOS 5G</h1>
-<p style="font-size:13px; color:#666; margin:5px 0;">Código: 238034800 | Com Nota Fiscal</p>
+  <h1>Conjunto De Biquíni Ajustável - Sexy Sólido Triangular</h1>
+  <p class="codigo-produto">Código: eb44dc51ch | Em Estoque</p>
 
-<p class="preco-antigo">De R$ 6.499,00</p>
-<p class="preco">R$ 4.299,00 no Pix</p>
-<p style="font-size:14px;">ou 12x de R$ 399,90 sem juros</p>
+  <p class="preco-antigo">De R$ [preço de referência]</p>
+  <p class="preco">R$ 81,23 à vista no Pix</p>
+  <p class="preco-parcelado">ou 7x de <strong>R$ 12,22</strong> sem juros</p>
 
-<a href="pagamento.html" style="text-decoration:none;" aria-label="Ir para pagamento">
-<button class="botao-magalu">🛒 ADICIONAR À SACOLA</button>
-</a>
+  <a href="pagamento.html" style="text-decoration:none;">
+    <button class="botao-comprar">🛒 COMPRAR AGORA</button>
+  </a>
 
-<a href="https://wa.me/5549912345678?text=Quero%20o%20iPhone%2015%20Azul%20128GB" target="_blank" style="text-decoration:none;" aria-label="Comprar pelo WhatsApp">
-<button class="botao-whats">💬 COMPRAR NO WHATSAPP COM DESCONTO</button>
-</a>
+  <a href="https://wa.me/5549912345678?text=Quero%20o%20Conjunto%20de%20Biqu%C3%ADni%20-%20Cor:%20[cor]%20-%20Tamanho:%20[tamanho]%20-%20R$%2081,23" target="_blank" style="text-decoration:none;">
+    <button class="botao-whats">💬 COMPRAR NO WHATSAPP</button>
+  </a>
 
-<div class="lista">
-<b>Informações do Produto:</b><br>
-✅ iPhone 15 128GB Azul - Novo e Lacrado<br>
-✅ Tela Super Retina XDR 6,1"<br>
-✅ Câmera 48MP + 12MP<br>
-✅ Chip A16 Bionic<br>
-✅ iOS 17<br>
-✅ Garantia 12 meses + Nota Fiscal<br>
-✅ Entrega para todo o Brasil<br><br>
+  <!-- DESCRIÇÃO -->
+  <div class="descricao">
+    <h3>📝 Descrição do Produto</h3>
+    
+    <p><strong>Ficha Técnica</strong><br>
+    <strong>Conjunto De Biquíni Ajustável Para Mulheres, Sexy, Sólido, Triangular, Moda De Praia Verão 2023</strong><br>
+    Código: eb44dc51ch</p>
 
+    <p><strong>✅ Suporte sem fio</strong><br>
+    Desfrute da liberdade de movimento com suporte sem fio, tornando-o perfeito para atividades na praia e natação.</p>
+
+    <p><strong>✅ Inclui almofada</strong><br>
+    A conveniência encontra o estilo com a almofada incluída, oferecendo cobertura adicional e confiança em seu traje de banho.</p>
+
+    <p><strong>✅ Estilo cintura baixa</strong><br>
+    O estilo cintura baixa embeleza a figura, proporcionando um visual moderno e estiloso para roupas de praia de verão.</p>
+
+    <p><strong>✅ Design de bandagem ajustável</strong><br>
+    O design de bandagem ajustável oferece um ajuste personalizável, garantindo conforto e suporte para todos os tipos de corpo.</p>
+
+    <p><strong>✅ Tipo de padrão sólido</strong><br>
+    O tipo de padrão sólido adiciona um toque de elegância, tornando-o uma escolha versátil para diversas ocasiões de moda praia.</p>
+  </div>
 </div>
 
-</div>
-</div>
-
-<div style="background:#0086ff; color:white; text-align:center; padding:20px; margin-top:20px; font-size:13px;">
+<div class="rodape">
 Magazine Luiza - Entrega rápida e segura
 </div>
+
+</div>
+
+<script>
+// FOTOS E CORES
+const fotos = [
+  "https://m.magazineluiza.com.br/a-static/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/0b5d5646f3af9dca4d49b16cae2a2d30.jpeg",
+  "https://a-static.mlcdn.com.br/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/666eb0df88bb201ecf957f5201db5e6e.jpeg",
+  "https://a-static.mlcdn.com.br/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/4737936d168b964505d7df0a0097ffd7.jpeg",
+  "https://a-static.mlcdn.com.br/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/1e5d7863be62e5bfc7af3649e630dea2.jpeg"
+];
+const codigosCor = ["8456", "8457", "8458", "8459"];
+let fotoAtual = 0;
+let corSelecionada = "8456";
+let tamanhoSelecionado = null;
+
+// TROCAR FOTO PRINCIPAL
+function trocarFoto(direcao) {
+  fotoAtual += direcao;
+  if (fotoAtual < 0) fotoAtual = fotos.length - 1;
+  if (fotoAtual >= fotos.length) fotoAtual = 0;
+  document.getElementById('fotoAtual').src = fotos[fotoAtual];
+}
+
+// ESCOLHER COR
+function escolherCor(indice, elemento) {
+  document.querySelectorAll('.opcao-cor').forEach(el => el.classList.remove('selecionado'));
+  elemento.classList.add('selecionado');
+  document.getElementById('fotoAtual').src = fotos[indice];
+  fotoAtual = indice;
+  corSelecionada = codigosCor[indice];
+  atualizarLinkWhatsApp();
+}
+
+// ESCOLHER TAMANHO
+function escolherTamanho(elemento, tam) {
+  document.querySelectorAll('.opcao-tamanho').forEach(el => el.classList.remove('selecionado'));
+  elemento.classList.add('selecionado');
+  tamanhoSelecionado = tam;
+  atualizarLinkWhatsApp();
+}
+
+// ATUALIZAR LINK DO WHATSAPP COM COR E TAMANHO
+function atualizarLinkWhatsApp() {
+  const linkBase = "https://wa.me/5549912345678?text=";
+  let texto = "Quero o Conjunto de Biquíni";
+  if (corSelecionada) texto += " - Cor: " + corSelecionada;
+  if (tamanhoSelecionado) texto += " - Tamanho: " + tamanhoSelecionado;
+  texto += " - R$ 81,23";
+  document.querySelector('.botao-whats').parentNode.href = linkBase + encodeURIComponent(texto);
+}
+</script>
 
 </body>
 </html>
