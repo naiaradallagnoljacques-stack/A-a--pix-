@@ -13,8 +13,8 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; padding-bottom:30px; 
 .resumo img { width:70px; height:70px; object-fit:contain; border:1px solid #eee; border-radius:8px; background:white; }
 .resumo-info { font-size:14px; line-height:1.4; }
 .preco-antigo { color:#999; text-decoration:line-through; font-size:13px; }
-.preco-final { color:#0086ff; font-weight:bold; font-size:18px; }
 .preco-pix { color:#00a650; font-weight:bold; font-size:15px; }
+.preco-final { color:#0086ff; font-weight:bold; font-size:18px; }
 
 /* Barra de progresso */
 .progresso { display:flex; padding:15px 20px; background:#fafafa; border-bottom:1px solid #eee; }
@@ -79,24 +79,6 @@ h3 { color:#333; margin-bottom:20px; font-size:17px; }
     
     <label class="label">Nome Completo *</label>
     <input class="input" name="nome" id="nome" placeholder="Digite seu nome completo" required>
-
-    <label class="label">Cor escolhida *</label>
-    <select class="input" name="cor" id="cor" required>
-      <option value="">Selecione a cor</option>
-      <option value="Cor: 8456">Cor: 8456</option>
-      <option value="Cor: 8457">Cor: 8457</option>
-      <option value="Cor: 8458">Cor: 8458</option>
-      <option value="Cor: 8459">Cor: 8459</option>
-    </select>
-
-    <label class="label">Tamanho *</label>
-    <select class="input" name="tamanho" id="tamanho" required>
-      <option value="">Selecione o tamanho</option>
-      <option value="P">P</option>
-      <option value="M">M</option>
-      <option value="G">G</option>
-      <option value="GG">GG</option>
-    </select>
 
     <label class="label">CEP *</label>
     <input class="input" name="cep" id="cep" placeholder="00000-000" maxlength="9" required>
@@ -194,8 +176,6 @@ h3 { color:#333; margin-bottom:20px; font-size:17px; }
 function irParaPagamento() {
   const nome = document.getElementById('nome').value;
   const email = document.getElementById('email').value;
-  const cor = document.getElementById('cor').value;
-  const tamanho = document.getElementById('tamanho').value;
   
   if (!nome.trim()) {
     alert('Por favor, preencha seu nome completo!');
@@ -203,14 +183,6 @@ function irParaPagamento() {
   }
   if (!email.includes('@')) {
     alert('Por favor, insira um e-mail válido!');
-    return;
-  }
-  if (!cor) {
-    alert('Por favor, selecione a cor!');
-    return;
-  }
-  if (!tamanho) {
-    alert('Por favor, selecione o tamanho!');
     return;
   }
   
@@ -237,7 +209,6 @@ function mostrarPagamento() {
   
   if (forma.includes('Cartão')) {
     document.getElementById('dados-cartao').classList.remove('escondido');
-    // Torna obrigatório apenas quando cartão for selecionado
     setRequiredCartao(true);
   } else if (forma.includes('Pix')) {
     document.getElementById('dados-pix').classList.remove('escondido');
